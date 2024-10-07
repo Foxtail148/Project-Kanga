@@ -11,4 +11,4 @@ Qualquer outra coisa que não estejam de acordo, mandem no zap ദ്ദി(ᵔ�
 
 - Antes de alterar o código totalmente, terá que se fazer uma cópia antes da mudança drástica.
 
-Por enquanto é só ദ്ദി(˵•̀ ᴗ-˵)✧
+Por enquanto é só ദ്ദി(˵•̀ᴗ-˵)✧
