@@ -12,3 +12,11 @@ Qualquer outra coisa que não estejam de acordo, mandem no zap ദ്ദി(ᵔ�
 - Antes de alterar o código totalmente, terá que se fazer uma cópia antes da mudança drástica.
 
 Por enquanto é só ദ്ദി(˵•̀ᴗ-˵)✧
+
+kakakkaka, perdemos  código original kkkkkkkkkk
+Mas enfim...
+
+Dessa vez tá tudo salvo （︶^︶）
+Não mais a erros dnv;
+Não mais
+
