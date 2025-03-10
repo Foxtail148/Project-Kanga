@@ -1,0 +1,95 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#bodypai{
+    
+     width:100%;
+     height:100%;
+     display: flex;
+     flex-direction: column;
+     gap:80px;
+}
+.topo{
+    display:flex;
+    cursor: pointer;
+    flex-direction: row;
+    gap:80px;
+    position: absolute;   /* Ajuste a posição horizontal */
+    left: 50px;
+    top:20px; /* Deslocamento vertical */
+    left: 10px;
+    
+}
+.btn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    
+} 
+button{
+    width:150px;
+    padding:5px;
+    border:2px solid black;
+    box-shadow: -4px 4px black;
+    border-radius:20px;
+    background:#0B76DD;
+            
+}
+button:hover{
+    cursor: pointer;
+    background:#60B1FF;
+    color: black;
+}
+.texto{display:flex; flex-direction: row; gap:50px;margin-left:40px;font-family: Georgia, 'Times New Roman', Times, serif; }
+
+.texto2{display:flex; flex-direction: row; justify-content: center;align-items: center; gap:45px;}
+.color{color: white;}
+.meio{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+h3{color:black;}
+
+.esquerda{
+    display:flex;
+    flex-direction: column;
+     margin-left:100px; 
+}
+.direita{
+    display:flex;
+    flex-direction: column;
+    margin-left:70px;
+}
+
+.text2{margin-left:30px;}
+.meio{
+    display:flex;
+    flex-direction: row;
+    gap:40px;
+    position: absolute;   /* Ajuste a posição horizontal */
+    left: 80px;
+    top:200px; /* Deslocamento vertical */
+    left: 20px;
+    
+}
+.mabeco{
+    width:300px;
+margin-left:130px;
+
+}
+.patas{
+    height:100px;
+    width:200px;
+}

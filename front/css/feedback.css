@@ -1,0 +1,294 @@
+*{
+    margin:0;
+    padding:0;
+}
+@keyframes anitexto{
+    0%{
+       color: #F03986;
+    }
+    10%{
+        color: #087F2D;
+    }
+    20%{
+        color:#FFBB00;
+    }
+    30%{
+        color: #0B76DD;
+    }
+}
+.ohoo{
+    animation: 30s anitexto infinite;
+    font-size:50px;
+    position: absolute;   /* Ajuste a posição horizontal */
+left: 50px;
+top: 10px; /* Deslocamento vertical */
+left: 50px;
+    margin-left:340px;
+
+}
+#bodypai{
+    width:100%;
+    height: 100%;
+    display:center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.inform{
+    width:100%;
+    height:60px;
+    /* background:plum;  */
+}
+.centro{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    height:500px;
+    /* background:purple;  */
+}
+.um{
+padding: 50px;
+outline:none;
+box-shadow: -10px 10px #F03986; /*sombra a esquerda*/
+border: 4px solid #F03986;
+border-radius:30px;
+width:400px;
+height:300px;
+/* background-color:#F03986; */
+background: white;
+position: absolute;   /* Ajuste a posição horizontal */
+left: 50px;
+font-size:20px;
+color:#F03986;
+display:flex;
+
+font-family: 'Franklin Gothic Demi', sans-serif;
+top:99px;
+margin-left: 300px;
+z-index: 1; /* Fica atrás */
+
+}
+.um:hover{
+cursor: alias;
+/* background-color: #FFBB00; */
+box-shadow: -10px 10px #571530; /*sombra a esquerda*/
+border: 4px solid #571530;
+
+}
+
+.lista{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top:100px;
+}
+.nome{
+position: absolute;   /* Ajuste a posição horizontal */
+left: 50px;
+top: 10px; /* Deslocamento vertical */
+left: 300px;
+margin-left:470px;
+width:160px;
+height:50px;
+background:white;
+
+border:2px solid #087F2D;
+border-radius:15px;
+color:#087F2D;
+/* margin-left:850px; */
+}
+.nome:hover{
+cursor: pointer;
+background:#60B1FF;
+border:2px solid #0B76DD;
+color:darkblue;
+
+}
+.wave{
+    display: flex;
+    flex-direction: row;
+}
+.ico{
+position: absolute;   /* Ajuste a posição horizontal */
+right: 50px;
+top: 70px; /* Deslocamento vertical */
+right: 200px; 
+margin-right:700px;   
+}
+.ico1{
+position: absolute;   /* Ajuste a posição horizontal */
+left: 50px;
+top: 400px; /* Deslocamento vertical */
+left: 200px; 
+margin-left:700px;  
+    
+}
+.ico2{
+position: absolute;   /* Ajuste a posição horizontal */
+right: 50px;
+top: 400px; /* Deslocamento vertical */
+right: 200px; 
+margin-right:700px; 
+    
+}
+.ico3{
+position: absolute;   /* Ajuste a posição horizontal */
+left: 50px;
+top: 70px; /* Deslocamento vertical */
+left: 200px; 
+margin-left:700px; 
+}
+.ico4{
+position: absolute;   /* Ajuste a posição horizontal */
+right: 50px;
+top: 200px; /* Deslocamento vertical */
+right: 200px; 
+margin-right:500px;   
+}
+.ico5{
+position: absolute;   /* Ajuste a posição horizontal */
+left: 50px;
+top: 200px; /* Deslocamento vertical */
+left: 200px; 
+margin-left:600px;  
+    
+}
+.ico6{
+position: absolute;   /* Ajuste a posição horizontal */
+right: 50px;
+top: 400px; /* Deslocamento vertical */
+right: 200px; 
+margin-right:500px; 
+    
+}
+.ico7{
+position: absolute;   /* Ajuste a posição horizontal */
+left: 50px;
+top: 500px; /* Deslocamento vertical */
+left: 200px; 
+margin-left:400px; 
+}
+.ico8{
+position: absolute;   /* Ajuste a posição horizontal */
+right: 50px;
+top: 550px; /* Deslocamento vertical */
+right: 200px; 
+margin-right:630px; 
+    
+}
+.ico9{
+position: absolute;   /* Ajuste a posição horizontal */
+left: 50px;
+top: 580px; /* Deslocamento vertical */
+left: 200px; 
+margin-left:590px; 
+}
+.ico10{
+position: absolute;   /* Ajuste a posição horizontal */
+right: 50px;
+top: 400px; /* Deslocamento vertical */
+right: 200px; 
+margin-right:500px; 
+    
+}
+.ico11{
+position: absolute;   /* Ajuste a posição horizontal */
+left: 50px;
+top: 400px; /* Deslocamento vertical */
+left: 200px; 
+margin-left:600px; 
+}
+.ico12{
+position: absolute;   /* Ajuste a posição horizontal */
+right: 50px;
+top: 230px; /* Deslocamento vertical */
+right: 200px; 
+margin-right:650px; 
+    
+}
+.ico13{
+position: absolute;   /* Ajuste a posição horizontal */
+left: 50px;
+top: 400px; /* Deslocamento vertical */
+left: 200px; 
+margin-left:600px; 
+}
+.ico14{
+position: absolute;   /* Ajuste a posição horizontal */
+right: 50px;
+top: 400px; /* Deslocamento vertical */
+right: 200px; 
+margin-right:500px; 
+    
+}
+.ico15{
+position: absolute;   /* Ajuste a posição horizontal */
+left: 50px;
+top: 400px; /* Deslocamento vertical */
+left: 200px; 
+margin-left:600px; 
+}
+.inpu{
+    position: absolute;   /* Ajuste a posição horizontal */
+left: 50px;
+top: 440px; /* Deslocamento vertical */
+left: 50px; 
+margin-left:360px;
+}
+.btg1{
+    width:300px;
+    display: flex;
+    text-align: center;
+    font-size: medium;
+    height:50px;
+    background:white;
+    box-shadow: -5px 5px #FFBB00 ;
+    border:2px solid #FFBB00;
+    border-radius:15px;
+    color:orange;
+    outline: none;
+    cursor: pointer
+
+}
+.btg1:hover{
+    width:300px;
+    display: flex;
+    text-align: center;
+    font-size: medium;
+    height:50px;
+    background:white;
+    box-shadow: -5px 5px orange ;
+    border:2px solid orange;
+    border-radius:15px;
+    color:#5A4102;
+    outline: none;
+    cursor: pointer
+
+}
+.inform{
+    display: flex;
+    flex-direction: row;
+}
+.nome2{
+position: absolute;   /* Ajuste a posição horizontal */
+right: 50px;
+top: 10px; /* Deslocamento vertical */
+right: 350px;
+margin-right:470px;
+width:160px;
+height:50px;
+background:white;
+
+border:2px solid #0B76DD;
+border-radius:15px;
+color:blue;
+/* margin-left:850px; */
+}
+.nome2:hover{
+cursor: pointer;
+background:#14e730;
+border:2px solid #087F2D;
+color:#087F2D;
+
+}

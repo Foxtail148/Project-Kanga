@@ -1,0 +1,109 @@
+
+:root{
+     /*Default Text Color */
+
+   --textcolor1: #000000; /*Landing Page */
+   --textcolor2: #2E1F1A; /* Landing Page */
+   --textcolor3: #5B5B5B; /* Landing Page */
+   --textcolor4: #727272;
+   --texcolor5: #8B8888;
+   --textcolor6:#C4C4C4; 
+   /* --white-bg: #F8FBFF; */
+
+   /* ////////////////////////////////////////////////// */
+
+    /* Card Layout Colors */
+    
+    --card-off: #F53284;
+    --card-off-stroke:#571530;
+
+    --card-on: #FFAFC5;
+    --card-on-stroke:#CE2B6F;
+
+    --card2-off: #FFC93E;
+    --card2-off-stroke:#5A4102;
+
+    --card2-on: #FFEF9D;
+    --card2-on-stroke:#FFC93E;
+
+    --card3-off: #0B76DD;
+    --card3-off-stroke:#001F3D;
+
+    --card3-on: #4EA9FF;
+    --card3-on-stroke:#386FA4;
+
+    --card4-off: #3CA55B;
+    --card4-off-stroke:#00411F;
+
+    --card4-on: #6DEC93;
+    --card4-on-stroke:#349450;
+
+    /* Cores - SideBar */
+
+    --font-on-stroke: #4299EE;
+    --bg-on: #C2E0FE;
+    --bg-leave: #FFAFC5;
+    --bg-leave-stroke: #571530;
+     /* Cores - Página tradução */
+
+    --bg-traducao:#FFF3D9;
+      --button-pesquisa-line: rgba(84, 52, 0, 0.6); /* Stroke Opacity: 60% */
+      --button-pesquisa-bg: #FFE6B4;
+      --button-pesquisa-textoff: rgba(84, 52, 0, 0.3); /* Opacity: 30% */
+      --button-pesquisa-texton: rgba(113, 92, 59, 0.3); /* Opacity: 30% */
+  
+      --button-found: #FFF9EE;
+      --button-found-shadow: rgba(211, 142, 30, 0.28); /* Opacity: 28% */
+      --button-found-text: rgba(113, 92, 59, 0.3); /* Opacity: 30% */
+  
+      --identify-row: rgba(211, 142, 30, 0.28); /* Opacity: 28% */
+
+   /* ////////////////////////////////////////////////// */
+
+    /* Cores - Botões - Levels */
+    --button-f1-on: #0253A1;
+    --button-f1-off: #0B76DD;
+    --stroke-f1: #00366B;
+
+    --button-f2-on: #BB155B;
+    --button-f2-off: #F03986;
+    --stroke-f2: #D21C66;
+
+    --button-f3-on: #FFC328;
+    --button-f3-off: #FFC93E;
+    --stroke-f3: #D99F00;
+
+    --button-f4-on: #087F2D;
+    --button-f4-off: #2CA251;
+    --stroke-f4: #087F2D;
+    --stroke-f4-2: #03521C;
+
+    /* ////////////////////////////////////////////////// */
+    --header-f1: #0B76DD;
+    --header-f1-stroke: #00264B;
+    --header-f1-button: #60B1FF;
+    --header-f1-button-stroke: #00366B;
+    
+    --header-f2: #F03986;
+    --header-f2-stroke: #D21C66;
+    --header-f2-button: #F03986;
+    --header-f2-button-stroke: #571530;
+
+    --header-f3: #FFC93E;
+    --header-f3-stroke: #D99F00;
+    --header-f3-button: #FFBB00;
+    --header-f3-button-stroke: #5A4102;
+
+    --header-f4: #2CA251;
+    --header-f4-stroke: #087F2D;
+    --header-f4-button: #10B544;
+    --header-f4-button-stroke: #087F2D;
+
+    /* Footer Alert */
+    --bg-certo: #ffffff;
+    --text-color1: #140e0e;
+
+    --bg-erro: #ffffff;
+    --bg-problema: #fffff;
+}
+

@@ -1,0 +1,228 @@
+*{
+	margin: 0;
+	padding:0 ;
+	box-sizing: border-box;
+	font-family: Helvetica, Arial, sans-serif;
+   }
+   
+   html, body{
+	   height: 100%;
+	   width: 100%;
+   }
+   header {
+	   display:flex;
+	   align-items: center;
+	   justify-content: space-between;
+	   padding: 50px;
+	   /* background-color: aliceblue; */
+	   font-weight: 600;
+	   font-size: larger;
+	   
+   } 
+   
+	header a{
+	   text-decoration: none;
+	   color: white;
+   }
+   header ul{
+	   list-style: none;
+	   display: flex;
+	   width: 100%;
+	   align-items: center;
+	   justify-content: space-between;
+	   gap: 0.5em;
+   }
+   header nav{
+	   width: 60%;
+	   /* background-color: #fdcc43; */
+   }
+   header button{
+	   padding: 15px 34px;
+	   box-shadow: -3px 3px 1px 0 black;
+	   border-radius: 20px;
+	   background: #3f2eff;
+	   color: white;
+	   border: solid 2px black;
+	   font-weight: bold;
+	   font-size: large;
+	   letter-spacing: 2px;
+	   /* position: relative; */
+	   cursor: pointer;
+   }
+   
+   body{
+	   background: #150F33;
+   }
+   
+   .divPai{
+	   min-height: 100%;
+	   max-height: 100%;
+	   background: #150F33;
+	   width: 100%;
+   }
+   
+   .first{
+	   display: flex;
+	   background: #150f33;
+	   color: white;
+   }
+   
+   .first section, .first div{
+	   min-height: 100%;
+	   display: flex;
+	   flex-direction: column;
+	   justify-content: center;
+	   /*background: red;*/
+   }
+   
+   .first section{
+	   width: 40%;
+	   gap: 20px;
+	   position: relative;
+	   left: 50px;
+   }
+   
+   .first section h1{
+	   /*font-weight: bolder;*/
+	   font-size: 40px;
+	   letter-spacing: 2px;
+   }
+   
+   .first section span{
+	   max-width: 89%;
+	   font-size: 25px;
+	   font-size: bold;
+	   letter-spacing: 2px;
+   }
+   
+   .first div{
+	   width: 60%;
+	   background: inherit;
+	   overflow: hidden;
+	   align-items: flex-end;
+   }
+   
+   .first div img{
+	   width: 89%;
+	   /*min-height: 150%;*/
+	   position: relative;
+   }
+   
+   
+   /* .middle{ */
+	   /* width: 100%; */
+	   /* min-height: 60%; */
+		/* background: white; */
+	   /* background-size: cover; */
+	   /* display: flex; */
+	   /* flex-direction: column; */
+	   /* justify-content: space-between; */
+	   /* align-items: center; */
+	   /* padding: 50px; */
+   
+	 .wave{
+	   position: relative;
+	   width: 100%;
+	   height: auto;
+	   overflow: hidden;
+	 }
+	 .wave img{
+	   display: block;
+	   width: 100%;
+	   margin-bottom: -5px;
+	 }
+   
+	.middle section{
+	   display: flex;
+	   align-items: center;
+	   justify-content: space-around;
+	   gap: 5px;
+	   background: white;
+	   padding: 30px;
+	   /* height: 200px; */
+   }
+   .middle section > * {
+	   position: relative;
+	   bottom: 60px;
+	 }
+   /* Terminar de indereitar depois */
+   
+   /*
+   .middle section h1{
+	   font-weight: bolder;
+	   font-size: 36px;
+	   letter-spacing: 2px;
+   }
+   
+   .middle section span{
+	   /*font-weight: bolder;
+	   font-size: 17.2px;
+   } */
+   .icon-button{
+	   display:flex;
+	   align-items: center;
+   }
+   .icon-button button{
+	   padding: 15px;
+	   box-shadow: -3px 3px 1px 0 black;
+	   border-radius: 20px;
+	   background: #fdcc43;
+	   border: solid 2px black;
+	   font-weight: bold;
+	   font-size: 20px;
+	   letter-spacing: 2px;
+	   /* position: relative; */
+	   cursor: pointer;
+   }
+   
+   /* middle descartada */
+   .middle2{
+	   width: 100%;
+	   background: white;
+	   background-repeat: no-repeat;
+	   background-size: cover;
+	   display: flex;
+	   justify-content: space-between;
+	   align-items: center;
+	   padding: 10px 50px;
+	   /*border-top: solid 1px black;*/
+   }
+   
+   .button2{
+	   right: 0;
+	   background: #0a529e;
+	   color: white;
+	   border-radius: 25px;
+	   padding: 5px;
+	   font-size: 15px;
+   
+   }
+   
+   .second{
+	   /* background: url("./bg2.jpg"); */
+	   background-repeat: no-repeat;
+	   background-size: cover;
+	   background-position-y: center;
+	   display: flex;
+	   flex-direction: column;
+	   justify-content: center;
+	   padding: 50px;
+	   min-height: calc(100% - 70px);
+	   max-height: calc(100% - 70px);
+   }
+   
+   .second h1{
+	   letter-spacing: 2px;
+	   font-size: 40px;
+   }
+   
+   .second .second_span{
+	   font-weight: bold;
+	   font-size: 20px;
+	   padding: 0;
+	   width: fit-content;
+	   display: flex;
+	   align-items: center;
+	   gap: 10px;
+	   letter-spacing: 2px;
+   }
