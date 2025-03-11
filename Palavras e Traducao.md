@@ -14,11 +14,11 @@ Preciso de ajuda - Ngamessena yo ungahula
 Estou com fome- Ngala Ni Nzala
 Estou com sede - Ngala ni Dinyota
 Onde está o banheiro? Kuehi kuala o kizouela
-Vamos- Twende
+Vamos - Twende
 Espera um momento - Emana Kethangange
 Não entendi - ko ngaukive
 Pode repitir-Ngui kihitululami
-Entendi-Ngakive
+Entendi - Ngakive
 Qual é o seu nome?- Dijina dijé Nany
 Moro em..- Ngatungue
 Você pode escrever?- Aie  ussoneké?
@@ -61,7 +61,7 @@ Você está bem?- wala kiambote?
 Bom dia - wa zekele
 Boa tarde - wa Nangue
 Boa noite - Ngoloxe
-Bem vindo - tanemuko
+Bem-vindo - tanemuko
 Estou com frio-  Ngala Ni Nbambe
 Estou com calor - Ngala Ni Diunza
 Não gostei disto - Eme kiki ngakizembe

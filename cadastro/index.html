@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/cadastro.js"></script>
-    <script src="../js/funcoes.js"></script>
+    <script src="../JS/cadastro.js"></script>
+    <script src="../JS/funcoes.js"></script>
     <link rel="stylesheet" href="../css/cadastro.css">
 </head>
 <body>
@@ -26,14 +26,14 @@
             <br>
             <form id="formCadastro" autocomplete="off">
         
-                <input type="text" id="nome" name="nome" pattern="[A-Za-z]+" required placeholder="Digite o seu nome"><br><br>
+                <input type="text" id="nome" name="nome" required placeholder="Digite o seu nome"><br><br>
         
                 <input type="email" id="email" name="email" required placeholder="Digite o seu email"><br><br>
         
-                <input type="password" id="senha" name="senha" minlength="8" maxlength="12" required placeholder="Digite a sua senha
+                <input type="password" id="senha" name="senha" minlength="8" required placeholder="Digite a sua senha
                 " ><br><br>
         
-                <button type="submit" class="btn"><h3 class="texto1">Cadastrar</h3></button>
+                <div class="btn" onclick="cadastro()"><h3 class="texto1">Cadastrar</h3></div>
                 
             </form>
         

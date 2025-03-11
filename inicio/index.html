@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../css/inicio.css">
+    <link rel="stylesheet" href="../css/cores.css">
+    <script src="../JS/logout.js"></script>
+    <script src="../JS/niveis.js"></script>
+</head>
+
+<body>
+  
+    <section class="size sidebar-imp">
+        <header class="align-header">
+            <img src="../img/LogoLightmode.svg" width="160px" alt="Logo 'Kanga'">
+        </header>
+       <div  class="nav-sb">
+        <button class="navbutton"><span><h3>Aprender</h3></span></button>
+        <button class="navbutton"><span><h3>Tradutor</h3></span></button>
+        <button class="navbutton"><span><h3>Perfil</h3></span></button>
+       </div>
+        <button class="navbutton" onclick="logout()"><span><h3>Sair</h3></span></button>
+    </section>
+
+    <main class="size main">
+
+        <header class="align-header level-header">
+            <div>
+                <h1><!-- Hello -->Ayó,  
+                    <script>document.write(localStorage.getItem("nome").split(" ")[0])
+                    </script>
+                </h1> 
+                <span><!-- Welcome back to my channel -->Tanemuko!</span>
+            </div>
+            <button>Começar</button>
+        </header>
+        <div class="level-conteiner" id="level-conteiner">
+        </div>
+        
+    </main>
+    <section class="size sidebar">
+        <header class="align-header custom"><button>Points and Charts</button></header>
+        
+    </section>
+</body>
+
+</html>

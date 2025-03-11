@@ -30,6 +30,7 @@ flex-direction:column;
     height:40px;
     background:#60B1FF;
     border:   2px solid blue;
+    box-shadow: -3px 3px blue;
     padding:2px;
     border-radius:18px;
     color:white;
@@ -39,6 +40,7 @@ flex-direction:column;
     cursor: pointer;
     background:white;
     border:2px solid #0B76DD;
+    box-shadow: -3px 3px #0B76DD;
     color:blue;
     }
     
@@ -48,6 +50,7 @@ height:40px;
 color:blue;
 background: white;
 border:   2px solid #0B76DD;
+box-shadow: -3px 3px #0B76DD;
 padding:2px;
 border-radius:18px;
 /* margin-left:850px; */
@@ -56,6 +59,7 @@ border-radius:18px;
 cursor: pointer;
 background: #60B1FF;
 border:2px solid blue;
+box-shadow: -3px 3px blue;
 color:white;
 }
 button{
@@ -69,8 +73,9 @@ border:2px solid gray ;
 cursor: pointer;
 margin-left:100px;
 outline:none;
-font-size: medium;
+font-size: large;
 font-family: 'Franklin Gothic Demi', sans-serif;
+padding: 5px;
 
 }
 .texta{
@@ -86,6 +91,9 @@ background:#60B1FF;
 border: 2px solid #0B76DD;
 color:#00366B;
 cursor: pointer;
-box-shadow: 3px 3px #0B76DD;
-
+box-shadow: -3px 3px #0B76DD;
+text-align: center;
+display: flex;
+align-items: center;
+justify-content: center;
 } 

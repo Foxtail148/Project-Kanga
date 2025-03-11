@@ -17,9 +17,9 @@ body{
 }
 
 .main{
-  /* background-color: aquamarine; */
+  /*background-color: aquamarine;*/
   width: 70%;
-  margin-left: 20%; 
+  margin-left: 22%; 
   margin-right: 28%; 
   display: flex; 
   flex-direction: column;
@@ -70,7 +70,7 @@ button{
     align-items: center;
     height: 100%;
     justify-content: space-between;
-    border-right: 4px solid var(--textcolor4);  
+    border-right: 2px solid var(--textcolor4);  
 }
 
 .sidebar header{margin-bottom: 30px;}
@@ -118,9 +118,28 @@ button{
     font-family: 'Gill Sans', sans-serif;
     border-radius: 100%;
     font-size: 50px;
+    cursor: pointer;
   }
-  
-  
+
+  .completed_level{
+    background-color: var(--button-f4-on);
+    border: 5px solid var(--stroke-f4-2);
+    box-shadow: 0px 16px 0 var(--stroke-f4-2);
+  }
+  .level-mov-right{
+    position: relative;
+    right: -50%;
+  }
+  .level-mov-left{
+    position: relative;
+    left: -50%;
+  }
+
+  .level-conteiner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .navbutton:hover{
     background: var(--bg-on);
     border: 3px solid var(--font-on-stroke);
@@ -145,7 +164,7 @@ button{
   
 .level-header{
 padding: 30px;
-height: 180px;
+/*height: 180px;*/
 display: flex;
 justify-content: space-between;
 }
