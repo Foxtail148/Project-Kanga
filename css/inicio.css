@@ -126,6 +126,11 @@ button{
     border: 5px solid var(--stroke-f4-2);
     box-shadow: 0px 16px 0 var(--stroke-f4-2);
   }
+  .blocked_level{
+    background-color: #bbb;
+    border: 5px solid #777;
+    box-shadow: 0px 16px 0 #777;
+  }
   .level-mov-right{
     position: relative;
     right: -50%;

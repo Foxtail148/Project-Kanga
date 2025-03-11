@@ -39,7 +39,7 @@ html, body{
 }
 .progressBar div{
 	height: 100%;
-	width: 10%;
+	width: 0%;
 	max-width: 100%;
 	border-radius: inherit;
 	background: #21CC26;
