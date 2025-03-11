@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Mar-2025 às 03:07
+-- Tempo de geração: 11-Mar-2025 às 09:37
 -- Versão do servidor: 10.4.32-MariaDB
 -- versão do PHP: 8.2.12
 
@@ -69,7 +69,7 @@ INSERT INTO `aluno` (`id_aluno`, `nome`, `email`, `senha`, `nivel_actual`, `xp`,
 (20, 'José Santos', 'jsantos7@gmail.com', '$2y$10$SPB6RaXt6aJIc5v2Ga6N0eqUbTprfKiaY4X3xQCERG5ReBMZGxdPO', 1, 0, '2025-03-10 21:17:20'),
 (21, 'José Santos', 'jsantos8@gmail.com', '$2y$10$cylzlPINAX1fWs249oIisuyej3LcJhDakMFtRODhvcTJrvizeMAOy', 1, 0, '2025-03-10 21:19:43'),
 (22, 'José Santos', 'jsantos9@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 1, 0, '2025-03-10 21:21:01'),
-(23, 'cc', 'jsantos10@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 1, 0, '2025-03-11 01:50:12');
+(23, 'cc', 'jsantos10@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 3, 0, '2025-03-11 01:50:12');
 
 -- --------------------------------------------------------
 
@@ -83,6 +83,69 @@ CREATE TABLE `aluno_nivel` (
   `id_nivel` int(11) DEFAULT NULL,
   `id_aluno` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `aluno_nivel`
+--
+
+INSERT INTO `aluno_nivel` (`id_aluno_nivel`, `estado`, `id_nivel`, `id_aluno`) VALUES
+(6, 'completo', 1, 23),
+(7, 'completo', 2, 23);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `jogabilidade`
+--
+
+CREATE TABLE `jogabilidade` (
+  `id_jogabilidade` int(11) NOT NULL,
+  `tipo` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `jogabilidade`
+--
+
+INSERT INTO `jogabilidade` (`id_jogabilidade`, `tipo`) VALUES
+(1, 'pares'),
+(2, 'áudio'),
+(3, 'significado');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `jogabilidade_nivel`
+--
+
+CREATE TABLE `jogabilidade_nivel` (
+  `id_jogabilidade_nivel` int(11) NOT NULL,
+  `id_jogabilidade` int(11) DEFAULT NULL,
+  `id_nivel` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `jogabilidade_nivel`
+--
+
+INSERT INTO `jogabilidade_nivel` (`id_jogabilidade_nivel`, `id_jogabilidade`, `id_nivel`) VALUES
+(1, 3, 1),
+(2, 3, 1),
+(3, 3, 1),
+(4, 3, 2),
+(5, 3, 2),
+(6, 3, 2),
+(7, 3, 3),
+(8, 3, 3),
+(9, 3, 3),
+(10, 3, 3),
+(11, 3, 4),
+(12, 3, 4),
+(13, 3, 5),
+(14, 3, 5),
+(15, 3, 5),
+(16, 3, 5),
+(17, 3, 5);
 
 -- --------------------------------------------------------
 
@@ -119,6 +182,7 @@ CREATE TABLE `palavra` (
   `palavra` varchar(100) NOT NULL,
   `categoria` varchar(50) DEFAULT NULL,
   `significado` text DEFAULT NULL,
+  `audio` varchar(255) DEFAULT NULL,
   `data_criacao` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -126,22 +190,22 @@ CREATE TABLE `palavra` (
 -- Extraindo dados da tabela `palavra`
 --
 
-INSERT INTO `palavra` (`id_palavra`, `palavra`, `categoria`, `significado`, `data_criacao`) VALUES
-(1, 'Olá', NULL, 'Ayó', '2025-03-10 22:09:06'),
-(2, 'Adeus', NULL, 'Kuahádia', '2025-03-10 22:09:55'),
-(3, 'Vamos', NULL, 'Twende', '2025-03-10 22:10:41'),
-(4, 'Desculpa', NULL, 'Nguilaloke', '2025-03-10 22:12:23'),
-(5, 'Entendi', NULL, 'Ngakive', '2025-03-10 22:13:01'),
-(6, 'Trabalho', NULL, 'Ukalalu', '2025-03-10 22:13:58'),
-(7, 'Música', NULL, 'Muimbu', '2025-03-10 22:15:13'),
-(8, 'Dia', NULL, 'Kizua', '2025-03-10 22:16:30'),
-(9, 'Noite', NULL, 'Ussuku', '2025-03-10 22:17:06'),
-(10, 'Amigo', NULL, 'Dikamba', '2025-03-10 22:17:57'),
-(11, 'Fámilia', NULL, 'Divumu', '2025-03-10 22:18:29'),
-(12, 'Pai', NULL, 'Tata', '2025-03-10 22:19:35'),
-(13, 'Mãe', NULL, 'Mama', '2025-03-10 22:19:56'),
-(14, 'Pessoa', NULL, 'Muthu', '2025-03-10 22:20:25'),
-(15, 'Gente', NULL, 'Mundu', '2025-03-10 22:20:42');
+INSERT INTO `palavra` (`id_palavra`, `palavra`, `categoria`, `significado`, `audio`, `data_criacao`) VALUES
+(1, 'Olá', NULL, 'Ayó', NULL, '2025-03-10 22:09:06'),
+(2, 'Adeus', NULL, 'Kuahádia', NULL, '2025-03-10 22:09:55'),
+(3, 'Vamos', NULL, 'Twende', NULL, '2025-03-10 22:10:41'),
+(4, 'Desculpa', NULL, 'Nguilaloke', NULL, '2025-03-10 22:12:23'),
+(5, 'Entendi', NULL, 'Ngakive', NULL, '2025-03-10 22:13:01'),
+(6, 'Trabalho', NULL, 'Ukalalu', NULL, '2025-03-10 22:13:58'),
+(7, 'Música', NULL, 'Muimbu', NULL, '2025-03-10 22:15:13'),
+(8, 'Dia', NULL, 'Kizua', NULL, '2025-03-10 22:16:30'),
+(9, 'Noite', NULL, 'Ussuku', NULL, '2025-03-10 22:17:06'),
+(10, 'Amigo', NULL, 'Dikamba', NULL, '2025-03-10 22:17:57'),
+(11, 'Fámilia', NULL, 'Divumu', NULL, '2025-03-10 22:18:29'),
+(12, 'Pai', NULL, 'Tata', NULL, '2025-03-10 22:19:35'),
+(13, 'Mãe', NULL, 'Mama', NULL, '2025-03-10 22:19:56'),
+(14, 'Pessoa', NULL, 'Muthu', NULL, '2025-03-10 22:20:25'),
+(15, 'Gente', NULL, 'Mundu', NULL, '2025-03-10 22:20:42');
 
 -- --------------------------------------------------------
 
@@ -184,6 +248,18 @@ ALTER TABLE `aluno_nivel`
   ADD PRIMARY KEY (`id_aluno_nivel`);
 
 --
+-- Índices para tabela `jogabilidade`
+--
+ALTER TABLE `jogabilidade`
+  ADD PRIMARY KEY (`id_jogabilidade`);
+
+--
+-- Índices para tabela `jogabilidade_nivel`
+--
+ALTER TABLE `jogabilidade_nivel`
+  ADD PRIMARY KEY (`id_jogabilidade_nivel`);
+
+--
 -- Índices para tabela `nivel`
 --
 ALTER TABLE `nivel`
@@ -221,7 +297,19 @@ ALTER TABLE `aluno`
 -- AUTO_INCREMENT de tabela `aluno_nivel`
 --
 ALTER TABLE `aluno_nivel`
-  MODIFY `id_aluno_nivel` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_aluno_nivel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de tabela `jogabilidade`
+--
+ALTER TABLE `jogabilidade`
+  MODIFY `id_jogabilidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de tabela `jogabilidade_nivel`
+--
+ALTER TABLE `jogabilidade_nivel`
+  MODIFY `id_jogabilidade_nivel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `nivel`

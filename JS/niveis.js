@@ -21,7 +21,7 @@ async function getNiveis(){
 	niveis.map((elemento, index)=>{
 		//alert(elemento.nivel_actual)
     document.getElementById("level-conteiner").innerHTML+=`
-        <button onclick=${elemento.numero == elemento.nivel_actual ? "setNivel("+elemento.id_nivel+")" : "acessBlockedLevel()"} class="level ${elemento.estado && elemento.estado == "completo" && "completed_level"} ${elemento.numero != elemento.nivel_actual && "blocked_level"} ${(index + 1) % 3 == 0 ? "level-mov-right" : (index + 1) % 2 == 0 || index == 0 ? "" : "level-mov-left"}"> ${elemento.numero}</button>
+        <button onclick=${elemento.numero == elemento.nivel_actual ? "setNivel("+elemento.id_nivel+")" : "acessBlockedLevel()"} class="level  ${elemento.numero > elemento.nivel_actual && "blocked_level"} ${elemento.numero < elemento.nivel_actual && "completed_level"} ${(index + 1) % 3 == 0 ? "level-mov-right" : (index + 1) % 2 == 0 || index == 0 ? "" : "level-mov-left"}"> ${elemento.numero}</button>
      `
   })
 	console.log(niveis);

@@ -54,10 +54,10 @@ async function iniciar(){
 }
 
 function chooseWordSignificado(element){
-	temps = document.querySelectorAll("gamingSectionWord");
+	/*temps = document.querySelectorAll(".gamingSectionWord");
 	for(el of temps){
 		el.setAttribute("class", "gamingSectionWord")
-	}
+	}*/
 	if(element.innerText == menus[jogo_actual].resposta){
 		acertou(element)
 	}
@@ -71,13 +71,48 @@ async function acertou(element){
 	element.setAttribute("class", "gamingSectionWord gamingSectionRightWord")
 	//alert(element)
 	updateTentativas();
-	document.querySelector(".progressBar div").style.width = ((1 * 100) / menus.length) + "%"; 
+	progress += 1;
+	document.querySelector(".progressBar div").style.width = ((progress * 100) / menus.length) + "%";
+	if(jogo_actual < menus.length - 1){
+		await sleep(1000);
+
+		temps = document.querySelectorAll(".gamingSectionWord");
+		for(el of temps){
+			el.style.display = "none"
+		}
+
+		jogo_actual ++
+		iniciar();
+	} else {
+		//alert("Muitos parabéns!");
+		await sleep(1000)
+		await proximoNivel();
+		location.href = "../inicio"
+	}
 }
 
 async function errou(element){
 	element.setAttribute("class", "gamingSectionWord gamingSectionWrongWord")
+	if(tentativas == 1){
+		location.href = location.href
+	}
 	tentativas --;
 	updateTentativas()
 	//alert("Errou")
 }
+
+async function proximoNivel(){
+	let params = await new URL(location.href).searchParams;
+	//alert(params.get("nivel"))	
+
+	let formData = new FormData();
+	formData.append("nivel", params.get("nivel"));
+	formData.append("aluno", localStorage.getItem("id"));
+	//alert(localStorage.getItem("id"))
+	let obj	= await	fetch("../api/proximo_nivel.php", {
+		method: "POST",
+		body: formData
+	});
+}
+
 jogar()
