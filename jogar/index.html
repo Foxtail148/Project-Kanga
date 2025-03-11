@@ -26,7 +26,7 @@
  			<div class="heart" >
  				<svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#FF4A4E" ><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 "/></svg>
  				<small id="tentativasSpan">
- 					<script type="text/javascript">document.write(tentativas)</script>
+ 					
  				</small>
  			</div>
  		</div>
@@ -45,6 +45,7 @@
  				<div class="gamingSectionWord" onclick="chooseWord(this)">Palavra</div>
  				<div class="gamingSectionWord" onclick="chooseWord(this)">Palavra</div>
  			</div> -->
+ 			
  		</div>
  		<div class="buttonSection">
  			<div class="button">Pular</div>
@@ -56,27 +57,5 @@
 <script>
 	function next() {
 		document.querySelector(".progressBar div").style.width = "50%";
-	}
-
-	function chooseWord(wordElement) {
-		let words = document.getElementsByClassName('gamingSectionWord');
-
-		for(let word of words){
-			word.setAttribute("class", "gamingSectionWord");
-		}
-
-		wordElement.setAttribute("class", "gamingSectionWord gamingSectionSelectedWord")
-		/*let attributes = colorPairs[actualPair];
-		wordElement.style.color = attributes.color;
-		wordElement.style.background = attributes.bg;
-		wordElement.style.borderColor = attributes.border;
-		wordElement.style.boxShadow = "-4px 4px 0 0 " + attributes.bs;
-
-		if(choosenElement == "first")
-			choosenElement = "second"
-		else{
-			choosenElement = "first"
-			actualPair = actualPair + (actualPair < colorPairs.length - 1 ? 1 : 0 )
-		}*/
 	}
 </script>

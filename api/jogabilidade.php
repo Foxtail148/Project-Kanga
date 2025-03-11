@@ -12,9 +12,22 @@ function getSignificado(){
 	$query->execute();
 	$ret = $query->fetchAll(PDO::FETCH_ASSOC);
 
-	$palavra = $ret[random_int(0, sizeof($ret) - 1)];
+	$palavras = [];
 
-	return $palavra;
+	for($i = 0; $i < 3; $i++){
+		$random = random_int(0, sizeof($ret) - 1);
+
+		if($ret[$random] == Null){
+			$i=$i-1;
+		}else{
+			$palavras[] = $ret[$random];
+			$ret[$random] = Null;
+		}
+	}
+
+	//$palavra = $ret[random_int(0, sizeof($ret) - 1)];
+	//var_dump($ret);
+	return $palavras;
 }
 
 function getAudio(){
@@ -23,9 +36,22 @@ function getAudio(){
 	$query->execute();
 	$ret = $query->fetchAll(PDO::FETCH_ASSOC);
 
-	$palavra = $ret[random_int(0, sizeof($ret) - 1)];
+	$palavras = [];
 
-	return $palavra;
+	for($i = 0; $i < 3; $i++){
+		$random = random_int(0, sizeof($ret) - 1);
+
+		if($ret[$random] == Null){
+			$i=$i-1;
+		}else{
+			$palavras[] = $ret[$random];
+			$ret[$random] = Null;
+		}
+	}
+
+	//$palavra = $ret[random_int(0, sizeof($ret) - 1)];
+	//var_dump($ret);
+	return $palavras;
 }
 
 function getPares(){
@@ -59,25 +85,25 @@ try{
     PDO::FETCH_ASSOC
   );
 
-  foreach ($ver as $jogabilidade) {
-  	if(strcmp($jogabilidade["tipo"], "pares")){
+  for($i = 0; $i < sizeof($ver); $i++) {
+  	$jogabilidade = $ver[$i];
+  	if(strcmp($jogabilidade["tipo"], "pares")==0){
   		$jogs[] = [
   			"tipo" => "pares",
   			"data" => getPares()
   		];
   	}
-  	else if(strcmp($jogabilidade["tipo"], "áudio")){
+  	if(strcmp($jogabilidade["tipo"], "áudio")==0){
   		$jogs[] = [
   			"tipo" => "áudio",
   			"data" => getAudio()
   		];
   	}
-  	else if(strcmp($jogabilidade["tipo"], "significado")){
+  	if(strcmp($jogabilidade["tipo"], "significado")==0){
   	$jogs[] = [
   			"tipo" => "significado",
   			"data" => getSignificado()
   		];
-  	}else{
   	}
   }
 
@@ -92,7 +118,6 @@ try{
 //echo json_encode(["message" => $message, "data" => getAudio()]);
 //echo "<br>";
 //echo json_encode(["message" => $message, "data" => getPares()]);
-//echo "<br>";
+// echo "<br>";
 echo json_encode(["message" => $message, "data" => $jogs]);
-?>
 ?>

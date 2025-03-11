@@ -79,6 +79,7 @@ html, body{
 	width: 100%;
 	color: #888;
 }
+
 .gamingBox{
 	display: flex;
 	justify-content: center;
@@ -148,10 +149,36 @@ html, body{
  justify-content: center;
  gap: 30px;
 }
-.gamingSectionSelectedWord{
+.gamingSectionWord:hover{
 	box-shadow: -3px 3px 0 0 #81BDF9;
 	border: solid 2px #81BDF9;
 	color: #81BDF9;
+}
+.gamingSectionWrongWord{
+	box-shadow: -3px 3px 0 0 #CE2B6F;
+	border: solid 2px #CE2B6F;
+	color: #CE2B6F;
+	background: #FFAFC5;
+}
+
+.gamingSectionWrongWord:hover{
+	box-shadow: -3px 3px 0 0 #CE2B6F;
+	border: solid 2px #CE2B6F;
+	color: #CE2B6F;
+	background: #FFAFC5;
+}
+
+.gamingSectionRightWord{
+	box-shadow: -3px 3px 0 0 #00411F;
+	border: solid 2px #00411F;
+	color: #00411F;
+	background: #3CA55B;
+}
+.gamingSectionRightWord:hover{
+	box-shadow: -3px 3px 0 0 #00411F;
+	border: solid 2px #00411F;
+	color: #00411F;
+	background: #3CA55B;
 }
 
 .buttonSection{
