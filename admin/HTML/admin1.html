@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin 1</title>
+    <link rel="stylesheet" href="../CSS/admin1.css">
+</head>
+<body>
+
+    <header class="headeradmin"> 
+
+        <section class="logo">
+            <img src="../UX UI/imgs/KangaAdLogo.svg" alt="Logo">
+        </section>
+
+        <section class="conta">
+
+            <span>Conta</span>
+            <span class="line"></span>
+            <span> adminuser@gmail.com </span>
+            <div> <button>▼</button> </div>
+    
+        </section>
+        
+    </header>
+
+     <section class="divider">
+        <button id="btn-linguagem" onclick="irParaPagina('admin1.html')">Linguagem</button>
+        <span class="line"></span>
+        <button id="btn-progresso" onclick="irParaPagina('admin2.html')">Progresso</button>
+     </section>
+
+    <section class="selection">
+
+        <div class="lb-pf"> 
+            <span>Palavra</span>
+            <button>▼</button> 
+        </div>
+
+        <div class="lb-search"> 
+            
+            <div class="lb-search"> 
+                <span class="sp">Pesquisar por:</span> 
+                <div class="lb-pf"> 
+                    <span>Palavra</span>
+                    <button>▼</button> 
+                </div>
+            </div>
+    
+            <div class="lb-choose"> 
+                <input placeholder="Pesquisar" type="search" class="input">
+                <button onclick="abrirPopup()">Adicionar</button>
+            </div>
+            
+         </div>
+        
+    </section>
+
+    <div class="row" style="display: none">
+        
+       <div>ID</div>
+       <div>Palavra</div>
+       <div>Tradução</div>
+       <div>audio_path</div>
+       <button onclick="editarElemento(this)">Editar</button>
+       <!-- Aplicar um hoverflow hidden  -->
+    </div>
+
+    
+    <div class="popup" id="popup">
+        
+        <div class="lb-search pop"> 
+            <div class="lb-pf"> 
+                <span class="sp">TIPO:</span> 
+                <span>Palavra</span>
+                <button>▼</button> 
+            </div>
+            <div class="pop-btn">
+
+            <button class="btn-pop" onclick="adicionarPalavra()">Adicionar</button>
+            <button class="btn-pop" onclick="fecharPopup()">Deletar</button>
+            <button class="btn-pop" onclick="fecharPopup()">Sair</button>
+            </div>
+        </div>
+
+        <div class="lb-search pop"> 
+            <span class="sp">Palavra:</span> 
+             <input id="palavra_input" placeholder="A palavra"  class="input inputpop">
+             <input id="significado_input" placeholder="A tradução da palavra"  class="input inputpop">
+             <input id="audio_file" class="input inputpop" type="file" style="display: none" onchange="fileChanged()">
+             <label id="audio_label" for="audio_file" class="input inputpop" style="border: 2px solid #e5e5e5; background: white; box-shadow: 0px 4px 4px -4px rgba(0, 0, 0, 0.25); display: flex; align-items: center; justify-content: center;">Áudio</label>
+        </div>
+        
+        
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    
+    <!-- <button onclick="abrirPopup()">Abrir Pop-up</button> -->
+    <div class="row">
+        <div>ID</div>
+        <div>PALAVRA</div>
+        <div>TRADUÇÃO</div>
+        <div>ÁUDIO</div>
+        <button>ACÇÕES</button>
+    </div>
+<script src="../JS/admin1.js"></script>
+<script src="../JS/caminhos.js"></script>
+
+
+</body>
+</html>

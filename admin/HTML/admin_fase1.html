@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TelaFase</title>
+    <!-- <link rel="stylesheet" href="../CSS/admin1.css"> -->
+    <link rel="stylesheet" href="../CSS/admin_fases.css">
+</head>
+
+<body>
+    <header class="headeradmin"> 
+
+        <section class="logo">
+            <img src="../UX UI/imgs/KangaAdLogo.svg" alt="Logo">
+        </section>
+
+        <section class="conta">
+
+            <span>Conta</span>
+            <span class="line"></span>
+            <span> adminuser@gmail.com </span>
+            <div> <button>▼</button> </div>
+    
+        </section>
+        
+    </header>
+    <section class="divider">
+        <button id="btn-linguagem" onclick="irParaPagina('admin1.html')">Linguagem</button>
+        <span class="line"></span>
+        <button id="btn-progresso" onclick="irParaPagina('admin2.html')">Progresso</button>
+     </section>
+
+    <!-- ///////////////////////////////////////////////////////////// -->
+    
+    <section class="mainn">
+        <div class="fase-row" onclick="irParaPagina('admin2.html')"> 
+        <div>
+            <div>
+                <span>Fase</span>
+            </div>
+        </div>
+    </div>
+    <button class="add-over" onclick="adicionarNivel()">Adicionar</button>
+    <input class="add-over"  type="number" min="20" id="xp_input" style="top: calc(88% - 80px); border: 2px solid #ccc; outline: none;" placeholder="Coloque o xp" />
+   
+
+     <!-- <div class="fase-row"> 
+        <div>
+            <div><span>Fase 1</span></div>
+        </div>
+    </div>
+    -->
+
+    </section>
+
+<!-- <script src="../JS/admin1.js"></script> -->
+<script src="../JS/admin_fase.js"></script>
+<script src="../JS/caminhos.js"></script>
+
+<script>
+  
+</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+@import url(admin1.css);
+@import url(admin2.css);
+@import url(cores_admin.css);
+
+.fase-row{
+ width: 32%;
+ height: 70px;
+ background-color: #484747;
+ color: white;
+ margin: 0 60px 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border-radius: 8px;
+}
+
+.mainn{
+    display: flex;
+}
+
+.teste{
+    display: flex;
+    height: 70px;
+    align-items: center;
+    width: 75%;
+    /* padding: 40px; */
+    /* justify-content: center; */
+    /* background-color: aqua; */
+    margin: 40px 60px;
+    /* border: 2px solid; */
+}
+
+.teste div{
+  width: 30%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+  border: 2px #000000 solid;
+}
+
+.teste div:nth-of-type(4), .teste div:nth-of-type(5) {
+    background-color: white;
+    border: none ;
+}
+.teste div:nth-of-type(1) {
+    background-color: white;
+}
+
+.teste div:nth-of-type(2) {
+    background-color: rgb(142, 142, 142);
+}
+
+
+.teste button{
+    width: 150px;
+    height: 60px;
+    margin: 80px 5px;
+    background-color: #484747;
+    border: none;
+    color:White;
+}
+.add-over{
+    position: fixed;
+    top: 88%;
+    right: 3%;
+    width: 200px;
+    padding: 20px;
+    border: 2px solid;
+    background-color: white;
+}
+.second:hover {background-color: #1a1a1a; transition: .4s}
+.second {background-color: #282020;}
+
+/* ------------------- */
+.jb-add{
+    width: 200px;
+    padding: 20px;
+    border: 2px solid;
+    background-color: white;
+    margin: 20px 60px 0px;
+
+}
+.jb-ed{
+    width: 80%;
+    /* background-color: bisque; */
+    display:flex;
+    margin: 15px 60px;
+    /* padding: 10px; */
+    
+}
+
+.campos {
+    display: flex;
+    flex: 1; 
+    display: flex;
+    align-items: center; 
+    border: 2px solid #ccc;
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px -4px rgba(0, 0, 0, 0.25);
+}
+
+.campos div {
+    flex: 1;
+    padding: 5px;
+    text-align: center;
+    border-right: 3px solid #afafaf; 
+}
+
+.campos div:last-child {
+    border-right: none; 
+}
+.jb-ed button{ 
+    width: 150px;
+    margin: 0px 10px 0px;
+    height:  50px;
+    background: #1a1a1a;
+    border: none;
+    color: white;
+}
+/* ////////////////////////////////////////// */
+/* Add Jogabilidade */
+
+.sj{ width: 30%;}
+
+
