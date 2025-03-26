@@ -44,7 +44,7 @@
     
     
     
-    <div class="fase-row"> 
+    <div class="fase-row nivel-span"> 
         <div>
             <div onclick="irParaPagina('admin_fase1.html')"><span>Nivel 1</span></div>
         </div>
@@ -76,9 +76,13 @@
         
     <div class="lb-search pop"> 
         <div class="lb-pf"> 
-            <span class="sp">TIPO:</span> 
-            <span>Combinar Pares</span>
-            <button>▼</button> 
+            <span class="sp">TIPO:</span>
+            <select onchange="mudarJogabilidade(this.value)">
+                <option>Significado</option>
+                <option>Pares</option>
+                <option>Áudio</option>
+
+            </select> 
         </div>
         <!--Esse deletar só vai ficar disponivel de clicar no editar  -->
     <div class="pop-btn">
@@ -90,23 +94,23 @@
     </div>
 
     <div class="lb-search pop"> 
-        <span class="sp sj">Palavra Principal:</span> 
-        <input id="palavraPrincipal" placeholder="A palavra" class="input inputpop">
+        <span class="sp sj">Palavra:</span> 
+        <input id="palavraPrincipal" onkeyup="pesquisarPalavra(this, 1, event)" placeholder="A palavra" class="input inputpop" autocomplete="false">
         <div  class="input inputpop"></div>
     </div>
     <div class="lb-search pop"> 
-        <span class="sp sj">Palavra 2:</span> 
-        <input id="palavra2" placeholder="A palavra" class="input inputpop">
+        <span class="sp sj">Palavra:</span> 
+        <input id="palavra2" onkeyup="pesquisarPalavra(this, 2, event)" placeholder="A palavra" class="input inputpop" autocomplete="false">
         <div  class="input inputpop"></div>
     </div>
     <div class="lb-search pop"> 
-        <span class="sp sj">Palavra 3:</span> 
-        <input id="palavra3" placeholder="A palavra" class="input inputpop">
+        <span class="sp sj">Palavra:</span> 
+        <input id="palavra3" onkeyup="pesquisarPalavra(this, 3, event)" placeholder="A palavra" class="input inputpop" autocomplete="false">
         <div  class="input inputpop"></div>
     </div>
-    <div class="lb-search pop "> 
-        <span class="sp sj">Palavra 4:</span> 
-        <input id="palavra4" placeholder="A palavra" class="input inputpop">
+    <div class="lb-search pop last-word" style="display: none;"> 
+        <span class="sp sj">Palavra:</span> 
+        <input id="palavra4" onkeyup="pesquisarPalavra(this, 4, event)" placeholder="A palavra" class="input inputpop" autocomplete="false">
         <div  class="input inputpop"></div>
     </div>
     </div>
