@@ -94,7 +94,7 @@ async function carregarNiveis(){
                 <div><span>Num. Jogabilidades</span></div>
                 <div><span>${nivel.total_jog}</span></div>
 
-                <div><button onclick="irParaPagina('admin_fase1_nivel1.html?nivel=${nivel.id_nivel}&fase=${params.get("fase")}')">Ver</button></div>
+                <div><button onclick="irParaPagina('admin_fase1_nivel1.html?nivel=${nivel.numero}&nivel_id=${nivel.id_nivel}&fase=${params.get("fase")}')">Ver</button></div>
                 <div><button onclick="eliminarElemento(this)">Eliminar</button></div>
             </div>
         `

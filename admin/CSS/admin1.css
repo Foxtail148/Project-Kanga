@@ -79,12 +79,27 @@ img{width: 250px;}
     /* background-color: burlywood; */
 }
 
-.lb-pf span:last-of-type{
+/*.lb-pf span:last-of-type{
   padding: 10px 20px  10px;
   background-color: White;
   border: 2px solid #9f9f9f;
   border-radius: 8px;
- }
+ }*/
+
+ .lb-pf select{
+    padding: 10px 20px  10px;
+    border: 2px solid #9f9f9f;
+    border-radius: 8px;
+   }
+   
+   .lb-pf select option{color: black; }
+   .lb-pf select:focus, .lb-pf select:hover { 
+    outline: none;
+    color: #8a8a8a;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(141, 141, 141, 0.1);
+    transition: .3s;
+    }
 
 .lb-pf button{
     padding: 12px 14px  10px;
