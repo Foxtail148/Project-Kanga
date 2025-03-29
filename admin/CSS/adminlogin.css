@@ -1,0 +1,73 @@
+/* Colocar as fontes em todo o projeto */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body, .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    margin-bottom: 30px; /* Aumento moderado */
+}
+
+div {
+    padding: 12px; /* Leve aumento */
+    margin: 35px; /* Aumento moderado */
+    display: flex;
+    align-items: center;
+    border-radius: 8px; /* Aumento moderado */
+    outline: 3px solid #696969; /* Ajustado */
+    transition: 0.3s ease-in-out;
+}
+
+div input {
+    margin-left: 15px; /* Ajustado */
+    min-width: 280px; /* Ajustado */
+    height: 40px; /* Ajustado */
+    font-size: 1.2rem; /* Ajustado */
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+div input:hover, 
+div input:focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+div:focus-within {
+    outline: 3px solid #7a7a7a; /* Ajustado */
+    box-shadow: 0 0 8px #454545; /* Ajustado */
+    transition: 0.2s ease-in-out;
+    background-color: white;
+}
+
+button {
+    padding: 15px; /* Ajustado */
+    background-color: #000000;
+    color: white;
+    border: none;
+    outline: none;
+    width: 160px; /* Ajustado */
+    height: 60px; /* Ajustado */
+    font-size: 1.2rem; /* Ajustado */
+    border-radius: 8px; /* Ajustado */
+}
+
+.main p {
+    margin-left: 30px; /* Ajustado */
+    font-size: 1.5rem; /* Ajustado */
+}

@@ -11,6 +11,7 @@ function fecharPopup() {
     document.getElementById("popup").style.display = "none";
 }
 
+
 function editarElemento(botao) {
     let linha = botao.parentElement;
 
@@ -74,7 +75,6 @@ function destacarBotaoAtivo() {
 
 document.addEventListener("DOMContentLoaded", destacarBotaoAtivo);
 
-
 async function adicionarPalavra(){
     let palavra = palavra_input.value;
     let significado = significado_input.value;
@@ -111,6 +111,46 @@ async function adicionarPalavra(){
         audio_label.innerText = "Áudio";
     }
     
+}
+function abrirPopupEditar(botao) {
+    let linha = botao.parentElement.parentElement; // Pegando a linha correta
+
+    let palavra = linha.children[1].textContent;
+    let traducao = linha.children[2].textContent;
+    let audioPath = linha.children[3].textContent;
+
+    // Preenchendo os campos do popup de edição
+    document.getElementById("edit_palavra_input").value = palavra;
+    document.getElementById("edit_significado_input").value = traducao;
+    document.getElementById("edit_audio_label").innerText = audioPath;
+
+    // Exibir popup e overlay
+    document.getElementById("overlay-editar").style.display = "block";
+    document.getElementById("popup-editar").style.display = "flex";
+}
+
+function fecharPopupEditar() {
+    document.getElementById("overlay-editar").style.display = "none";
+    document.getElementById("popup-editar").style.display = "none";
+}
+function deletarPalavra() {
+    let palavra = document.getElementById("edit_palavra_input").value;
+    
+    if (!palavra) {
+        alert("Nenhuma palavra selecionada para deletar.");
+        return;
+    }
+
+    let confirmacao = confirm(`Tem certeza que deseja excluir a palavra "${palavra}"?`);
+
+    if (confirmacao) {
+        // Aqui você precisa adicionar a lógica para remover do banco de dados ou lista de palavras
+        console.log(`Palavra "${palavra}" deletada!`);
+
+        // Opcional: pode ser necessário chamar uma função para remover do front-end também
+
+        fecharPopupEditar(); // Fecha o popup após deletar
+    }
 }
 
 let total_palavras = 0;

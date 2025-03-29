@@ -3,11 +3,12 @@ function terminarsessao(){
         localStorage.removeItem("nome")
         localStorage.removeItem("senha")
     
-        location.href = "../login";
+        location.href = "../login"; // Wha the Hell ?
+        
     
 }
 function entrar(){
-    location.href="../login";
+    location.href="../HTML/login.html";
 }
 function a(){
     location.href="../HTML/page2.html";
@@ -38,12 +39,7 @@ function voltar(){
     location.href="../HTML/index.html";
 }
 
-function or(){
-    location.href="../HTML/login.html";
-}
-function fed(){
-    location.href="../HTML/feedback.html";
-}
+
 
 
 

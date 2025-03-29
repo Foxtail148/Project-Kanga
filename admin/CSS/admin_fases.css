@@ -1,4 +1,4 @@
-@import url(admin1.css);
+
 @import url(admin2.css);
 @import url(cores_admin.css);
 
@@ -122,6 +122,9 @@
     border: none;
     color: white;
 }
+
+
+
 /* ////////////////////////////////////////// */
 /* Add Jogabilidade */
 

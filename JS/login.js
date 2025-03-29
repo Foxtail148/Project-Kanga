@@ -48,7 +48,7 @@ async function login(){
   formData.append("email", email.value);
   formData.append("senha", senha.value);
 
-  let obj = await fetch("../api/login.php", {
+  let obj = await fetch("../PHP/login.php", {
     method: "POST",
     body: formData
   });
@@ -58,9 +58,10 @@ async function login(){
   if(res.message)
     alert(res.message)
   else{
+    alert("Funciona!"); 
     localStorage.setItem("id", res.data.id);
     localStorage.setItem("senha", res.data.senha);
     localStorage.setItem("nome", res.data.nome);
-    location.href = "../inicio";
+    location.href = "../HTML/face.html";
   }
 }

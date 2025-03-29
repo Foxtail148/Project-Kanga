@@ -137,18 +137,7 @@ async function addJB() {
 
 }
 
-function abrirPopup() {
-    
-    document.body.classList.add("blur");
-    document.getElementById("overlay").style.display = "block";
-    document.getElementById("popup").style.display = "flex";
-}
 
-function fecharPopup() {
-    document.body.classList.remove("blur"); 
-    document.getElementById("overlay").style.display = "none"; 
-    document.getElementById("popup").style.display = "none";
-}
 
 function dadosIniciais(){
     let params = new URL(location.href).searchParams;
@@ -219,18 +208,22 @@ async function carregarJogabilidades(){
     let resp = await obj.json();
 
     resp.jogabilidades.map((jogabilidade, index)=>{
+        let con = "";
+        jogabilidade.palavras.map((pal, ind)=>{
+            con += `
+            <div>
+                ${pal.palavra}
+            </div>
+            `
+        })
+
         document.body.innerHTML += `
         <div class="jb-ed">
             <div class="campos">
                 <div>TIPO: <span>${jogabilidade.tipo}</span></div>
                 ${
-                    jogabilidade.palavras.map((pal, ind)=>{
-                        return(`
-                        <div>
-                            ${pal.palavra}
-                        </div>
-                        `)
-                    })
+                 con   
+                    
                 }
             </div>
             <button onclick="abrirPopup()">Editar</button>

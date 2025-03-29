@@ -1,0 +1,57 @@
+@import url('../css/cores.css');
+
+/* Colocar as fontes em todo o projeto */
+/* Botões */
+
+.btn1 {
+    background: #fbca1f;
+    font-family: inherit;
+    padding: 0.6em 1.3em;
+    font-weight: 900;
+    font-size: 18px;
+    border: 3px solid black;
+    border-radius: 0.4em;
+    box-shadow: 0.1em 0.1em;
+    cursor: pointer;
+  }
+  
+  .btn1:hover {
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 0.15em 0.15em;
+  }
+  
+  .btn1:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em;
+  }
+  /* width: 100px;
+  height: 100px; */
+
+  /* Botão 2 */
+
+.btnlv {
+    width: 115px;
+    height: 110px; 
+    border-radius: 100px;
+    border: 0;
+    background-color: rgb(255, 56, 86);
+    letter-spacing: 1.5px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-shadow: rgb(201, 46, 70) 0px 18px 0px 0px;
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+  }
+  
+  .btnlv:hover {
+    box-shadow: rgb(201, 46, 70) 0px 15px 0px 0px;
+    transform: translateY(4px);
+  }
+  
+  .btnlv:active {
+    background-color: rgb(255, 56, 86);
+    box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
+    transform: translateY(19px);
+    transition: 20ms;
+  }
+  

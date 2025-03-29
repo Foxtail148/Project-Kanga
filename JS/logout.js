@@ -3,5 +3,5 @@ function logout(){
   localStorage.removeItem("nome");
   localStorage.removeItem("senha");
     
-  location.href = "../login";
+  location.href = "../HTML/login.html";
 }

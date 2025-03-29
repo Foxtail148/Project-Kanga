@@ -1,0 +1,136 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/inicio.css">
+    <link rel="stylesheet" href="../css/cores.css">
+    <style>
+     
+    </style>
+</head>
+
+<body>
+    <section class="size sidebar-imp">
+        <header class="align-header">
+            <img src="../img/LogoLightmode.svg" width="150px" alt="Logo 'Kanga'">
+        </header>
+        <div>
+        <button class="navbutton"> <div> <span><i class="fa-solid fa-book"></i></span>Aprender</div></button>
+        <button class="navbutton"> <div><span><i class="fa-solid fa-comment"></i></span>Tradutor</div></button>
+        <button class="navbutton"><div> <span><i class="fa-solid fa-circle-user"></i></span>Perfil</div></button>
+        </div>
+        <button>Sair</button>
+    </section>
+
+    <main class="size main">
+
+        <header class="align-header level-header">
+            <div> <h1>Hello Guys</h1>
+            <span>Welcome back to my channel</span></div>
+            <button>Começar</button>
+        </header>
+        <div class="level-conteiner e">
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+           
+        </div>
+
+        <div class="level-conteiner d">
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+        </div>
+
+        <div class="level-conteiner e">
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+        </div>
+
+        <div class="level-conteiner d">
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+            <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+        </div>
+        
+
+    </main>
+    
+    <section class="size sidebar">
+        <header class="align-header" >
+            <div class="total">
+                <i class="fa-solid fa-heart fa-3x"></i>
+                <span>0</span>
+            </div>
+            
+            <div class="total">
+                <i class="fa-solid fa-diamond fa-3x">
+                </i><span>0</span>
+            </div>
+        </header>
+    </section>
+</body>
+
+</html>
+<script>
+document.addEventListener("scroll", () => {
+    const header = document.querySelector(".level-header");
+    const containers = document.querySelectorAll(".level-conteiner");
+
+    if (!header || containers.length === 0) return;
+
+    let headerRect = header.getBoundingClientRect();
+    let found = false;
+
+    const themes = [
+        { bg: "#0B76DD", border: "#00264B", shadow: "#00264B", btn: "#60B1FF", btnBorder: "#00366B", btnShadow: "#00366B" }, // f1
+        { bg: "#F03986", border: "#D21C66", shadow: "#D21C66", btn: "#F03986", btnBorder: "#571530", btnShadow: "#571530" }, // f2
+        { bg: "#FFC93E", border: "#D99F00", shadow: "#D99F00", btn: "#FFBB00", btnBorder: "#5A4102", btnShadow: "#5A4102" }, // f3
+        { bg: "#2CA251", border: "#087F2D", shadow: "#087F2D", btn: "#10B544", btnBorder: "#087F2D", btnShadow: "#087F2D" }  // f4
+    ];
+
+    containers.forEach((container, index) => {
+        let containerRect = container.getBoundingClientRect();
+
+        if (headerRect.bottom > containerRect.top && headerRect.top < containerRect.bottom) {
+            found = true;
+            let theme = themes[index % themes.length];
+
+            header.style.backgroundColor = theme.bg;
+            header.style.borderColor = theme.border;
+            header.style.boxShadow = `-6px 10px 0 ${theme.shadow}`;
+
+            let button = header.querySelector("button");
+            button.style.backgroundColor = theme.btn;
+            button.style.borderColor = theme.btnBorder;
+            button.style.boxShadow = `-5px 6px 0 ${theme.btnShadow}`;
+        }
+    });
+
+    if (!found) {
+        let theme = themes[0]; 
+        header.style.backgroundColor = theme.bg;
+        header.style.borderColor = theme.border;
+        header.style.boxShadow = `-6px 10px 0 ${theme.shadow}`;
+
+        let button = header.querySelector("button");
+        button.style.backgroundColor = theme.btn;
+        button.style.borderColor = theme.btnBorder;
+        button.style.boxShadow = `-5px 6px 0 ${theme.btnShadow}`;
+    }
+});
+
+</script>

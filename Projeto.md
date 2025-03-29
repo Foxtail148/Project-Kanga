@@ -1,6 +1,6 @@
 LEIAM ""
 Esse é o repositório do nosso projeto final
-"Aplicativo de Linguas Nacionais"
+"Aplicativo de Ensino Português-Kimbundu"
 Primeiro de tudo gostaria que ouvesse organização ao criar arquivos. 
 
 Então sugiro de criarmos pastas para cada tipo de linguagem e depois fazermos o direcionamento.
@@ -19,4 +19,7 @@ Mas enfim...
 Dessa vez tá tudo salvo （︶^︶）
 Não mais a erros dnv;
 Não mais
+
+KKKKKKK, DELETAMOS UMA DAS BRANCH KSKSKSSKKS
+MDS (っ °Д °;)っ
 

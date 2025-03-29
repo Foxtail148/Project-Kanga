@@ -6,13 +6,14 @@ async function getNiveis(){
 	//alert(localStorage.getItem("id"));
 	formData.append("id_aluno", localStorage.getItem("id"));
 
-	let obj = await fetch("../api/niveis.php", {
+	let obj = await fetch("../PHP/niveis.php", {
 		method: "POST",
 		body: formData
 	})
 
 	let res = await obj.json();
-
+    console.log("Resposta do servidor:", res); 
+	
 	if(res.message)
 		alert(res.message)
 	else
@@ -30,7 +31,7 @@ async function getNiveis(){
 
 
 function  setNivel(id_nivel) {
-	//alert(id_nivel)
+	alert(id_nivel);
 	location.href = "../jogar?nivel="+id_nivel
 }
 

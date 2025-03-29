@@ -19,7 +19,7 @@
             <span>Conta</span>
             <span class="line"></span>
             <span> adminuser@gmail.com </span>
-            <div> <button>▼</button> </div>
+            <div> <button>LOG</button> </div>
     
         </section>
         
@@ -34,17 +34,23 @@
     <section class="selection">
 
         <div class="lb-pf"> 
-            <span>Palavra</span>
-            <button>▼</button> 
+            <span class="sp">TIPO:</span> 
+            <select>
+                <option> Palavra</option>
+                <option> Frase</option>
+            </select>
         </div>
-
         <div class="lb-search"> 
             
             <div class="lb-search"> 
                 <span class="sp">Pesquisar por:</span> 
                 <div class="lb-pf"> 
-                    <span>Palavra</span>
-                    <button>▼</button> 
+                    <select>
+                      <option>Nome</option>
+                      <option>ID</option>
+                      <option>Nome do Audio</option>
+                      <option>Tradução</option>
+                    </select>
                 </div>
             </div>
     
@@ -54,32 +60,36 @@
             </div>
             
          </div>
+    
         
     </section>
+<style>
 
-    <div class="row" style="display: none">
+</style>
+
+    <div class="campos jb-ed" style="display:none" >
         
        <div>ID</div>
        <div>Palavra</div>
        <div>Tradução</div>
        <div>audio_path</div>
-       <button onclick="editarElemento(this)">Editar</button>
-       <!-- Aplicar um hoverflow hidden  -->
-    </div>
+       <button onclick="abrirPopupEditar(this)">Editar</button> <!-- Depois alterar: -->
 
-    
+    </div>
+     
     <div class="popup" id="popup">
         
         <div class="lb-search pop"> 
             <div class="lb-pf"> 
                 <span class="sp">TIPO:</span> 
-                <span>Palavra</span>
-                <button>▼</button> 
+                <select>
+                    <option> Palavra</option>
+                    <option> Frase</option>
+                </select>
             </div>
             <div class="pop-btn">
 
             <button class="btn-pop" onclick="adicionarPalavra()">Adicionar</button>
-            <button class="btn-pop" onclick="fecharPopup()">Deletar</button>
             <button class="btn-pop" onclick="fecharPopup()">Sair</button>
             </div>
         </div>
@@ -97,14 +107,57 @@
 
     <div class="overlay" id="overlay"></div>
     
-    <!-- <button onclick="abrirPopup()">Abrir Pop-up</button> -->
-    <div class="row">
-        <div>ID</div>
-        <div>PALAVRA</div>
-        <div>TRADUÇÃO</div>
-        <div>ÁUDIO</div>
-        <button>ACÇÕES</button>
+    <!-- Novo Popup para Editar
+       <span class="sp">Editar Palavra:</span> 
+        -->
+    
+    <div class="popup" id="popup-editar" style="display: none;">
+        <div class="lb-search pop"> 
+            <div class="lb-pf"> 
+                <span class="sp">TIPO:</span> 
+                <select>
+                    <option>Palavra</option>
+                    <option>Frase</option>
+                </select>
+            </div>
+            <div class="pop-btn">
+                <button class="btn-pop" onclick="salvarEdicao()">Salvar</button>
+                <button class="btn-pop delete-btn" onclick="deletarPalavra()">Excluir</button>
+                <button class="btn-pop" onclick="fecharPopupEditar()">Sair</button>
+            </div>
+        </div>
+    
+        <div class="lb-search pop"> 
+            <span class="sp">Editar Palavra:</span> 
+            <input id="edit_palavra_input" placeholder="A palavra" class="input inputpop">
+            <input id="edit_significado_input" placeholder="A tradução da palavra" class="input inputpop">
+            
+            <input id="edit_audio_file" class="input inputpop" type="file" style="display: none" onchange="fileChangedEditar()">
+            <label id="edit_audio_label" for="edit_audio_file" class="input inputpop" 
+                   style="border: 2px solid #e5e5e5; background: white; box-shadow: 0px 4px 4px -4px rgba(0, 0, 0, 0.25); display: flex; align-items: center; justify-content: center;">
+                Áudio
+            </label>
+        </div>
+    
+        
     </div>
+
+<div class="overlay" id="overlay-editar"></div> 
+
+    <!-- 
+   Função adicionar e função editar pega os os campos preenhcidos e ou alguma parte do HTML
+    -->
+    
+    <!-- <button onclick="abrirPopup()">Abrir Pop-up</button> -->
+    <div class="campos jb-ed ">
+        
+        <div>ID</div>
+        <div>Palavra</div>
+        <div>Tradução</div>
+        <div>audio_path</div>
+        <button>Acções</button>
+ 
+     </div>
 <script src="../JS/admin1.js"></script>
 <script src="../JS/caminhos.js"></script>
 

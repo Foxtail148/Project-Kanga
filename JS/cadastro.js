@@ -51,8 +51,9 @@ async function cadastro(){
   formData.append("nome", nome.value);
   formData.append("email", email.value);
   formData.append("senha", senha.value);
+  
 
-  let obj = await fetch("../api/cadastro.php", {
+  let obj = await fetch("../PHP/cadastro.php", {
     method: "POST",
     body: formData
   });
@@ -62,7 +63,8 @@ async function cadastro(){
   if(res.message)
     alert(res.message)
   else
-    location.href = "../login"
+ 
+    location.href = "../HTML/login.html"
 }
 
 
@@ -108,3 +110,5 @@ function  validarCadastro() {
   else
     return true;
 }
+
+// Como estilizar alerts - Pesquisar
