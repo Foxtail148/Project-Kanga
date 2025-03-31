@@ -221,6 +221,19 @@ body{
     cursor: pointer;
     margin: 15px 0px;
   }
+  .level:hover {
+    box-shadow: rgb(201, 46, 70) 0px 15px 0px 0px;
+    transform: translateY(4px);
+  }
+  
+  .level:active {
+    background-color: rgb(255, 56, 86);
+    box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
+    transform: translateY(19px);
+    transition: 20ms;
+  }
+  
+
 
   /* A COBRINHA */
   .e button:nth-child(1){
@@ -270,17 +283,40 @@ body{
 
   /* fIM DA COBRINHA */
   
-  .level:hover {
-    box-shadow: rgb(201, 46, 70) 0px 15px 0px 0px;
+ 
+  
+  
+  #fase1-cnt button{
+    background-color: #0B76DD;
+    box-shadow: #00366B 0px 19px 0px 0px;
+
+  }
+  #fase1-cnt button:hover {
+    box-shadow: #00366B 0px 15px 0px 0px;
     transform: translateY(4px);
   }
   
-  .level:active {
-    background-color: rgb(255, 56, 86);
-    box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
+  #fase1-cnt button:active {
+    background-color: #0B76DD;
+    box-shadow:#00366B 0px 0px 0px 0px;
     transform: translateY(19px);
     transition: 20ms;
   }
   
-  
 
+  #fase2-cnt button{
+    background-color: #F03986;
+    box-shadow: #00366B 0px 19px 0px 0px;
+
+  }
+  #fase2-cnt button:hover {
+    box-shadow: #00366B 0px 15px 0px 0px;
+    transform: translateY(4px);
+  }
+  
+  #fase2-cnt button:active {
+    background-color: #0B76DD;
+    box-shadow:#00366B 0px 0px 0px 0px;
+    transform: translateY(19px);
+    transition: 20ms;
+  }

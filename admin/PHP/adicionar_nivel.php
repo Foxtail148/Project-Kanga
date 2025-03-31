@@ -13,11 +13,15 @@ $res = $consulta->fetchAll(
 	PDO::FETCH_ASSOC
 );
 
+if($res[0]["numero"] < 6){
+
 $numero = $res[0]["numero"];
 $consulta = $conexao->prepare("INSERT INTO nivel(numero, id_fase, xp) values(?, ?, ?)");
 
 $consulta->execute([$numero, $fase, $xp]);
-
+} else {
+	$mensagem = "Número máximo de níveis atingido. Max: 5";
+}
 
 echo json_encode(["mensagem" => $mensagem]);
 ?>

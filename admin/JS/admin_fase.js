@@ -88,8 +88,8 @@ async function carregarNiveis(){
         if(index < total_niveis)
             return null;
 
-        document.body.innerHTML += `
-            <div class="teste" >
+        document.body.innerHTML += 
+        `   <div class="teste" >
                 <div> <span>Nível ${nivel.numero}</span></div>
                 <div><span>Num. Jogabilidades</span></div>
                 <div><span>${nivel.total_jog}</span></div>

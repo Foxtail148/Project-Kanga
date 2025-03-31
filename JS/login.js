@@ -62,6 +62,6 @@ async function login(){
     localStorage.setItem("id", res.data.id);
     localStorage.setItem("senha", res.data.senha);
     localStorage.setItem("nome", res.data.nome);
-    location.href = "../HTML/face.html";
+    location.href = "../HTML/Interface.html";
   }
 }

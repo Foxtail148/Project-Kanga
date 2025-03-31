@@ -112,7 +112,7 @@ async function adicionarPalavra(){
     }
     
 }
-function abrirPopupEditar(botao) {
+function abrirPopupEditar(id, palavra, tipo, ) {
     let linha = botao.parentElement.parentElement; // Pegando a linha correta
 
     let palavra = linha.children[1].textContent;
@@ -173,7 +173,7 @@ async function carregarPalavras(){
             <div>${palavra.palavra}</div>
             <div>${palavra.significado}</div>
             <div>${palavra.audio}</div>
-            <button onclick="abrirPopup()">Editar</button>
+            <button onclick="abrirPopupEditar(this)">Editar</button>
         `;
         
         total_palavras++;
