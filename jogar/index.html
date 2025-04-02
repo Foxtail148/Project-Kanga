@@ -5,12 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Gaming</title>
 	<link rel="stylesheet" type="text/css" href="index.css">
-	<script type="text/javascript" src="../JS/jogabilidade.js"></script>
+	
 </head>
 <body>
  	<div id="jogPage1">
  		<div class="progress">
- 			<svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="location.href='../inicio'">
+ 			<svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="location.href='../html/Interface.html'">
 				<g clip-path="url(#clip0_429_11083)">
 					<path d="M7 7.00006L17 17.0001M7 17.0001L17 7.00006" stroke="#292929" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 				</g>
@@ -26,32 +26,57 @@
  			<div class="heart" >
  				<svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#FF4A4E" ><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 "/></svg>
  				<small id="tentativasSpan">
- 					
+ 					0
  				</small>
  			</div>
  		</div>
- 		<div class="gamingSection">
- 			<div class="gamingSectionText"></div>
- 			<!-- <div class="gamingBox">
+ 		<div class="gamingSectionText"> </div>
+ 		<div class="gamingSection jogSign">
+ 			<!-- <div class="gamingSectionWord" onClick="chooseWordSignificado(this)">palavra</div>
+ 			<div class="gamingSectionWord" onClick="chooseWordSignificado(this)">palavra</div>
+ 			<div class="gamingSectionWord" onClick="chooseWordSignificado(this)">palavra</div>
+ 			-->
+ 		</div>
+ 		<div class="gamingSection jogPares">
+ 			<div class="jogParesColumn paresPt">
+ 			 	<!-- <div class="gamingSectionWord" onClick="chooseWordSignificado(this)">palavra</div>
+ 				<div class="gamingSectionWord" onClick="chooseWordSignificado(this)">palavra</div>
+ 				<div class="gamingSectionWord" onClick="chooseWordSignificado(this)">palavra</div>
+ 				<div class="gamingSectionWord" onClick="chooseWordSignificado(this)">palavra</div>
+ 				-->
+ 			</div>
+ 			<div class="jogParesColumn paresKm">
+ 			 	<!-- <div class="gamingSectionWord" onClick="chooseWordSignificado(this)">palavra</div>
+ 				<div class="gamingSectionWord" onClick="chooseWordSignificado(this)">palavra</div>
+ 				<div class="gamingSectionWord" onClick="chooseWordSignificado(this)">palavra</div>
+ 				<div class="gamingSectionWord" onClick="chooseWordSignificado(this)">palavra</div>
+ 				-->
+ 			</div>
+ 		</div>
+ 		<div class="gamingSection jogAudio">
+ 			<div class="gamingBox">
  				<div class="littleTriangle">
+ 					<audio>
+ 						<source type="">
+ 					</audio>
  					<div class="innerTriangle"></div>
  				</div>
  				<div class="signalConteiner">
- 					<svg xmlns="http://www.w3.org/2000/svg" height="55px" viewBox="0 -960 960 960" width="55px" fill="#4E93D4"><path d="M200-120q-33 0-56.5-23.5T120-200q0-33 23.5-56.5T200-280q33 0 56.5 23.5T280-200q0 33-23.5 56.5T200-120Zm480 0q0-117-44-218.5T516-516q-76-76-177.5-120T120-680v-120q142 0 265 53t216 146q93 93 146 216t53 265H680Zm-240 0q0-67-25-124.5T346-346q-44-44-101.5-69T120-440v-120q92 0 171.5 34.5T431-431q60 60 94.5 139.5T560-120H440Z"/></svg>
+ 					<svg onclick="playAudio()" xmlns="http://www.w3.org/2000/svg" height="55px" viewBox="0 -960 960 960" width="55px" fill="#4E93D4"><path d="M200-120q-33 0-56.5-23.5T120-200q0-33 23.5-56.5T200-280q33 0 56.5 23.5T280-200q0 33-23.5 56.5T200-120Zm480 0q0-117-44-218.5T516-516q-76-76-177.5-120T120-680v-120q142 0 265 53t216 146q93 93 146 216t53 265H680Zm-240 0q0-67-25-124.5T346-346q-44-44-101.5-69T120-440v-120q92 0 171.5 34.5T431-431q60 60 94.5 139.5T560-120H440Z"/></svg>
  				</div>
  			</div>
  			<div class="gamingSectionBar">
  				<div class="gamingSectionWord" onclick="chooseWord(this)">Palavra</div>
  				<div class="gamingSectionWord" onclick="chooseWord(this)">Palavra</div>
  				<div class="gamingSectionWord" onclick="chooseWord(this)">Palavra</div>
- 			</div> -->
- 			
+ 			</div>
  		</div>
  		<div class="buttonSection">
- 			<div class="button">Pular</div>
- 			<div class="button verifyButton">Verificar</div>
+ 			<div class="button" onclick="skip()">Pular</div>
+ 			<div class="button verifyButton disabledButton">Verificar</div>
  		</div>
  	</div>
 </body>
 </html>
 <script> </script>
+<script type="text/javascript" src="../JS/jogabilidade.js"></script>

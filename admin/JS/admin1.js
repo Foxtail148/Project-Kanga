@@ -115,8 +115,8 @@ async function adicionarPalavra(){
 function abrirPopupEditar(id, palavra, tipo, ) {
     let linha = botao.parentElement.parentElement; // Pegando a linha correta
 
-    let palavra = linha.children[1].textContent;
-    let traducao = linha.children[2].textContent;
+    //let palavra = linha.children[1].textContent;
+    //let traducao = linha.children[2].textContent;
     let audioPath = linha.children[3].textContent;
 
     // Preenchendo os campos do popup de edição
@@ -160,28 +160,30 @@ async function carregarPalavras(){
     let resp = await obj.json();
 
 
-    resp.palavras.map((palavra, index)=>{
+    resp.palavras.map((pal, index)=>{
 
         if(index < total_palavras)
             return null;
 
         let novaRow = document.createElement("div");
-        novaRow.classList.add("row");   
-
+        //novaRow.classList.add("row");   
+        novaRow.classList.add("campos");
+        novaRow.classList.add("jb-ed");
         novaRow.innerHTML = `
-            <div>${palavra.id_palavra}</div>
-            <div>${palavra.palavra}</div>
-            <div>${palavra.significado}</div>
-            <div>${palavra.audio}</div>
+            <div>${pal.id_palavra}</div>
+            <div>${pal.palavra}</div>
+            <div>${pal.significado}</div>
+            <div>${pal.audio}</div>
             <button onclick="abrirPopupEditar(this)">Editar</button>
         `;
         
         total_palavras++;
         document.body.appendChild(novaRow);
-
+        //alert(total_palavras)
     })
 
 }
+
 carregarPalavras();
 
 function fileChanged(){

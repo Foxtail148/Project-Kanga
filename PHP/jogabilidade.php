@@ -77,8 +77,20 @@ function getPares(){
 	return $palavras;
 }
 
+function getPalavras($id_jogn){
+	include("conexao.php");
+	$query = $conn->prepare("SELECT palavra, significado, audio from palavra join jogabilidade_nivel_palavra where jogabilidade_nivel_palavra.id_palavra = palavra.id_palavra and jogabilidade_nivel_palavra.id_jogabilidade_nivel = ?");
+	$query->execute([$id_jogn]);
+
+	$ret = $query->fetchAll(PDO::FETCH_ASSOC);
+	$palavras = $ret;
+
+	return $palavras;
+}
+
 try{
-  $query = $conn->prepare("SELECT jogabilidade.tipo, jogabilidade_nivel.id_nivel FROM jogabilidade_nivel join jogabilidade where jogabilidade_nivel.id_jogabilidade = jogabilidade.id_jogabilidade and jogabilidade_nivel.id_nivel = ?");
+  $query = $conn->prepare("SELECT jogabilidade.tipo, jogabilidade_nivel.id_jogabilidade_nivel FROM jogabilidade_nivel join jogabilidade where jogabilidade_nivel.id_jogabilidade = jogabilidade.id_jogabilidade and jogabilidade_nivel.id_nivel = ?");
+
   $query->execute([$nivel]);
 
   $ver = $query->fetchAll(
@@ -87,7 +99,11 @@ try{
 
   for($i = 0; $i < sizeof($ver); $i++) {
   	$jogabilidade = $ver[$i];
-  	if(strcmp($jogabilidade["tipo"], "pares")==0){
+  	$jogs[] = [
+  		"tipo" => $jogabilidade["tipo"],
+  		"palavras" => getPalavras($jogabilidade["id_jogabilidade_nivel"])
+  	];
+  	/*if(strcmp($jogabilidade["tipo"], "pares")==0){
   		$jogs[] = [
   			"tipo" => "pares",
   			"data" => getPares()
@@ -104,7 +120,8 @@ try{
   			"tipo" => "significado",
   			"data" => getSignificado()
   		];
-  	}
+  	}*/
+
   }
 
 } catch (PDOException $e) {

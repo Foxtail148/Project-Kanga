@@ -33,7 +33,7 @@ async function getNiveis(){
 		
 		let elemento_fase = document.querySelector(`#fase${elemento.id_fase}-cnt`);
 		elemento_fase.innerHTML += `
-			<button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+			<button class="level" onclick="location.href = '../jogar?nivel=${elemento.id_nivel}'"><i class="fa-solid fa-star fa-4x"></i></button>
 		`
 
 		//alert()
