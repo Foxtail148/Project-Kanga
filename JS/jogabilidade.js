@@ -103,7 +103,7 @@ function iniciar(){
 		document.querySelector(".gamingSectionText").innerText = `O que diz aqui:`;
 		document.querySelector(".jogAudio audio source").src = `../admin/AUDIO/${menus[jogo_actual].palavras[tmp_int].audio}`
 
-		alert(document.querySelector(".jogAudio audio source").src)
+		//alert(document.querySelector(".jogAudio audio source").src)
 		//console.log(correctSignWord)
 		let tmp_element = document.querySelector(".gamingSection.jogAudio");
 		console.log(tmp_element)

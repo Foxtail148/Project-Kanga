@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Mar-2025 às 17:15
+-- Tempo de geração: 02-Abr-2025 às 19:56
 -- Versão do servidor: 10.4.32-MariaDB
 -- versão do PHP: 8.2.12
 
@@ -69,7 +69,7 @@ INSERT INTO `aluno` (`id_aluno`, `nome`, `email`, `senha`, `nivel_actual`, `hp`,
 (19, 'dsadsd', 'ceutron12@gmail.com', '$2y$10$RH0frWWiVRD1ZgGATv6rX.BbasLnOWiZeaQBtzWEwSU1zTaYCT9aK', 1, 5, 0, '2025-03-10 20:33:12'),
 (20, 'José Santos', 'jsantos7@gmail.com', '$2y$10$SPB6RaXt6aJIc5v2Ga6N0eqUbTprfKiaY4X3xQCERG5ReBMZGxdPO', 1, 5, 0, '2025-03-10 21:17:20'),
 (21, 'José Santos', 'jsantos8@gmail.com', '$2y$10$cylzlPINAX1fWs249oIisuyej3LcJhDakMFtRODhvcTJrvizeMAOy', 1, 5, 0, '2025-03-10 21:19:43'),
-(22, 'José Santos', 'jsantos9@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 1, 5, 0, '2025-03-10 21:21:01'),
+(22, 'José Santos', 'jsantos9@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 2, 5, 0, '2025-03-10 21:21:01'),
 (23, 'cc', 'jsantos10@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 1, 5, 0, '2025-03-11 01:50:12');
 
 -- --------------------------------------------------------
@@ -84,6 +84,13 @@ CREATE TABLE `aluno_nivel` (
   `id_nivel` int(11) DEFAULT NULL,
   `id_aluno` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `aluno_nivel`
+--
+
+INSERT INTO `aluno_nivel` (`id_aluno_nivel`, `estado`, `id_nivel`, `id_aluno`) VALUES
+(1, 'completo', 8, 22);
 
 -- --------------------------------------------------------
 
@@ -144,9 +151,6 @@ CREATE TABLE `jogabilidade_nivel` (
 --
 
 INSERT INTO `jogabilidade_nivel` (`id_jogabilidade_nivel`, `id_jogabilidade`, `id_nivel`) VALUES
-(1, 1, 1),
-(2, 2, 1),
-(3, 3, 1),
 (7, 3, 8),
 (8, 3, 8),
 (9, 3, 8),
@@ -154,7 +158,10 @@ INSERT INTO `jogabilidade_nivel` (`id_jogabilidade_nivel`, `id_jogabilidade`, `i
 (11, 3, 8),
 (12, 1, 8),
 (13, 2, 8),
-(14, 2, 8);
+(14, 2, 8),
+(17, 3, 9),
+(18, 1, 9),
+(19, 2, 9);
 
 -- --------------------------------------------------------
 
@@ -197,7 +204,17 @@ INSERT INTO `jogabilidade_nivel_palavra` (`id_jogabilidade_nivel_palavra`, `id_p
 (22, 9, 13),
 (23, 22, 14),
 (24, 6, 14),
-(25, 21, 14);
+(25, 21, 14),
+(32, 22, 17),
+(33, 21, 17),
+(34, 10, 17),
+(35, 22, 18),
+(36, 3, 18),
+(37, 10, 18),
+(38, 21, 18),
+(39, 22, 19),
+(40, 10, 19),
+(41, 21, 19);
 
 -- --------------------------------------------------------
 
@@ -218,14 +235,26 @@ CREATE TABLE `nivel` (
 --
 
 INSERT INTO `nivel` (`id_nivel`, `numero`, `dificuldade`, `id_fase`, `xp`) VALUES
-(1, 1, 'fácil', 0, 50),
-(2, 2, 'fácil', 0, 50),
-(3, 3, 'fácil', 0, 50),
-(4, 4, 'fácil', 0, 50),
-(5, 5, 'fácil', 0, 70),
 (8, 1, NULL, 1, 25),
 (9, 2, NULL, 1, 40),
-(10, 3, NULL, 1, 50);
+(10, 3, NULL, 1, 50),
+(11, 4, NULL, 1, 100),
+(12, 5, NULL, 1, 150),
+(13, 1, NULL, 2, 200),
+(14, 2, NULL, 2, 200),
+(15, 3, NULL, 2, 200),
+(16, 4, NULL, 2, 200),
+(17, 5, NULL, 2, 200),
+(18, 1, NULL, 3, 300),
+(19, 2, NULL, 3, 300),
+(20, 3, NULL, 3, 300),
+(21, 4, NULL, 3, 300),
+(22, 5, NULL, 3, 350),
+(23, 1, NULL, 4, 100),
+(24, 2, NULL, 4, 100),
+(25, 3, NULL, 4, 500),
+(26, 4, NULL, 4, 500),
+(27, 5, NULL, 4, 500);
 
 -- --------------------------------------------------------
 
@@ -266,7 +295,8 @@ INSERT INTO `palavra` (`id_palavra`, `palavra`, `categoria`, `significado`, `aud
 (19, 'Escola', NULL, 'Xicola', 'Escola.mp3', '2025-03-24 19:50:38'),
 (20, 'Mercado', NULL, 'Kitanda', 'Mercado.mp3', '2025-03-24 19:51:17'),
 (21, 'Triste', NULL, 'Kuluada', 'Triste.mp3', '2025-03-24 19:53:10'),
-(22, 'Zangado', NULL, 'Kufutuluka', 'Zangado.mp3', '2025-03-24 19:53:44');
+(22, 'Zangado', NULL, 'Kufutuluka', 'Zangado.mp3', '2025-03-24 19:53:44'),
+(23, 'Comida', NULL, 'Kudia', 'Comida.mp3', '2025-04-02 11:28:45');
 
 -- --------------------------------------------------------
 
@@ -306,7 +336,9 @@ ALTER TABLE `aluno`
 -- Índices para tabela `aluno_nivel`
 --
 ALTER TABLE `aluno_nivel`
-  ADD PRIMARY KEY (`id_aluno_nivel`);
+  ADD PRIMARY KEY (`id_aluno_nivel`),
+  ADD KEY `id_aluno` (`id_aluno`),
+  ADD KEY `id_nivel` (`id_nivel`);
 
 --
 -- Índices para tabela `fase`
@@ -324,19 +356,24 @@ ALTER TABLE `jogabilidade`
 -- Índices para tabela `jogabilidade_nivel`
 --
 ALTER TABLE `jogabilidade_nivel`
-  ADD PRIMARY KEY (`id_jogabilidade_nivel`);
+  ADD PRIMARY KEY (`id_jogabilidade_nivel`),
+  ADD KEY `id_nivel` (`id_nivel`),
+  ADD KEY `id_jogabilidade` (`id_jogabilidade`);
 
 --
 -- Índices para tabela `jogabilidade_nivel_palavra`
 --
 ALTER TABLE `jogabilidade_nivel_palavra`
-  ADD PRIMARY KEY (`id_jogabilidade_nivel_palavra`);
+  ADD PRIMARY KEY (`id_jogabilidade_nivel_palavra`),
+  ADD KEY `id_jogabilidade_nivel` (`id_jogabilidade_nivel`),
+  ADD KEY `id_palavra` (`id_palavra`);
 
 --
 -- Índices para tabela `nivel`
 --
 ALTER TABLE `nivel`
-  ADD PRIMARY KEY (`id_nivel`);
+  ADD PRIMARY KEY (`id_nivel`),
+  ADD KEY `id_fase` (`id_fase`);
 
 --
 -- Índices para tabela `palavra`
@@ -370,7 +407,7 @@ ALTER TABLE `aluno`
 -- AUTO_INCREMENT de tabela `aluno_nivel`
 --
 ALTER TABLE `aluno_nivel`
-  MODIFY `id_aluno_nivel` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_aluno_nivel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `fase`
@@ -388,31 +425,62 @@ ALTER TABLE `jogabilidade`
 -- AUTO_INCREMENT de tabela `jogabilidade_nivel`
 --
 ALTER TABLE `jogabilidade_nivel`
-  MODIFY `id_jogabilidade_nivel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_jogabilidade_nivel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela `jogabilidade_nivel_palavra`
 --
 ALTER TABLE `jogabilidade_nivel_palavra`
-  MODIFY `id_jogabilidade_nivel_palavra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_jogabilidade_nivel_palavra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de tabela `nivel`
 --
 ALTER TABLE `nivel`
-  MODIFY `id_nivel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_nivel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de tabela `palavra`
 --
 ALTER TABLE `palavra`
-  MODIFY `id_palavra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_palavra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de tabela `traducao`
 --
 ALTER TABLE `traducao`
   MODIFY `id_traducao` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `aluno_nivel`
+--
+ALTER TABLE `aluno_nivel`
+  ADD CONSTRAINT `aluno_nivel_ibfk_1` FOREIGN KEY (`id_aluno`) REFERENCES `aluno` (`id_aluno`),
+  ADD CONSTRAINT `aluno_nivel_ibfk_2` FOREIGN KEY (`id_nivel`) REFERENCES `nivel` (`id_nivel`);
+
+--
+-- Limitadores para a tabela `jogabilidade_nivel`
+--
+ALTER TABLE `jogabilidade_nivel`
+  ADD CONSTRAINT `jogabilidade_nivel_ibfk_1` FOREIGN KEY (`id_nivel`) REFERENCES `nivel` (`id_nivel`),
+  ADD CONSTRAINT `jogabilidade_nivel_ibfk_2` FOREIGN KEY (`id_jogabilidade`) REFERENCES `jogabilidade` (`id_jogabilidade`);
+
+--
+-- Limitadores para a tabela `jogabilidade_nivel_palavra`
+--
+ALTER TABLE `jogabilidade_nivel_palavra`
+  ADD CONSTRAINT `jogabilidade_nivel_palavra_ibfk_1` FOREIGN KEY (`id_jogabilidade_nivel`) REFERENCES `jogabilidade_nivel` (`id_jogabilidade_nivel`),
+  ADD CONSTRAINT `jogabilidade_nivel_palavra_ibfk_2` FOREIGN KEY (`id_palavra`) REFERENCES `palavra` (`id_palavra`);
+
+--
+-- Limitadores para a tabela `nivel`
+--
+ALTER TABLE `nivel`
+  ADD CONSTRAINT `nivel_ibfk_1` FOREIGN KEY (`id_fase`) REFERENCES `fase` (`id_fase`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

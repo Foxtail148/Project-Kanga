@@ -232,4 +232,18 @@ async function carregarJogabilidades(){
     })
 }
 
+
+function abrirPopup() {
+    
+    document.body.classList.add("blur");
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("popup").style.display = "flex";
+}
+
+function fecharPopup() {
+    document.body.classList.remove("blur"); 
+    document.getElementById("overlay").style.display = "none"; 
+    document.getElementById("popup").style.display = "none";
+}
+
 carregarJogabilidades();

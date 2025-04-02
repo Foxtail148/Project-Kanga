@@ -45,7 +45,7 @@ async function getNiveis(){
 
 
 function setNivel(id_nivel) {
-	alert(id_nivel);
+	//alert(id_nivel);
 	location.href = "../jogar?nivel="+id_nivel
 }
 
