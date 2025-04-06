@@ -1,4 +1,4 @@
-fetch('sbkg.html')
+fetch('../html/sbkg.html')
     .then(response => response.text())
     .then(data => {
         // Inserir o HTML da sidebar no container
