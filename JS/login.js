@@ -58,10 +58,10 @@ async function login(){
   if(res.message)
     alert(res.message)
   else{
-    alert("Funciona!"); 
+    // alert("Funciona!"); 
     localStorage.setItem("id", res.data.id);
     localStorage.setItem("senha", res.data.senha);
     localStorage.setItem("nome", res.data.nome);
-    location.href = "../HTML/Interface.html";
+    location.href = "../HTML/interface.html";
   }
 }

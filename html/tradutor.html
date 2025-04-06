@@ -1,49 +1,42 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="../css/tradutor.css">
-    <link rel="stylesheet" href="../css/cores.css">
-    <style>
-     
-    </style>
+    <title>Tradutor</title>
+    <link rel="stylesheet" href="../CSS/bar.css">
+    <link rel="stylesheet" href="../CSS/tradutor.css">
 </head>
-
 <body>
-    <section class="sidebar-imp">
-        <header class="align-header">
-            <img src="../img/LogoLightmode.svg" width="150px" alt="Logo 'Kanga'">
-        </header class="centered">
-        <div class="centered">
-        <button class="navbutton"> <div> <span><i class="fa-solid fa-book " ></i></span>Aprender</div></button>
-        <button class="navbutton"> <div><span><i class="fa-solid fa-comment"></i></span>Tradutor</div></button>
-        <button class="navbutton"><div> <span><i class="fa-solid fa-circle-user"></i></span>Perfil</div></button>
-        </div>
-        <button>Sair</button>
-    </section>
 
-    <section class="main">
-    <div class="search-input"> 
-        <i class="fa-solid fa-language fa-2x"></i>
-        <input type="text" placeholder="Pesquise aqui">
+
+    <div id="sidebar-container">
+
     </div>
-    <div class="separador">
-        <span>Português</span>
-        <span>Kimbundu</span>
 
-     </div>
+    <main class="main">
 
-     <div class=" separador caixa-tl">
-        <span>Palavra</span>
-        <span>Tradução</span>
+       <div class="inbox">
+        <input placeholder="Pesquise por aqui" type="text" name="text" class="input">
+       </div>
 
-     </div>
-     
-     </section>
+       <div class="box">
+
+        <div class="res">
+            <span>Palavra</span>
+            <span>Tradução</span>
+        </div>
+        
+        <div class="res">
+            <span>Palavra</span>
+            <span>Tradução</span>
+        </div>
+   
+       </div>
+
+    </main>
+    
+    <script src="../JS/sb.js"></script>
 </body>
-
 </html>
