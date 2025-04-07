@@ -38,7 +38,7 @@ async function pegarDados() {
 	let res = await	obj.json();
 
 	if(res.message)
-		alert(message)
+		alert(res.message)
 	else{
 		res.data.map((elemento, index)=>{
 				//if(elemento.tipo == "significado"){
@@ -57,9 +57,7 @@ function iniciar(){
 	//document.querySelector(".gamingSectionText").innerText = "O que significa "+`"`+menus[jogo_actual].texto+`"`+"?";
 
 	if(progress >= menus.length){
-		alert("Nível completado!");
-		location.href = "../HTML/Interface.html"
-
+		proximoNivel();
 		return;
 	}
 
@@ -302,6 +300,15 @@ async function proximoNivel(){
 		method: "POST",
 		body: formData
 	});
+
+	let resp = await obj.json();
+
+	if(resp.message)
+		alert(resp.message)
+	else{
+		alert("Nível completado!");
+		location.href = "../HTML/Interface.html"
+	}
 }
 
 async function updateProgress(){

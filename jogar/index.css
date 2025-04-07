@@ -4,6 +4,7 @@
 	box-sizing: border-box;
 	font-family: Arial, Helvetica, sans-serif;
 	letter-spacing: 1.25px;
+	user-select: none;
 }
 
 html, body{

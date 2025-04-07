@@ -161,3 +161,21 @@ body{
     transform: translateY(19px);
     transition: 20ms;
   }
+
+
+  .disabled-level{
+    background-color: #ddd;
+    box-shadow:  #ccc 0px 18px 0px 0px;
+  }
+
+  .disabled-level:hover {
+    box-shadow: #ccc 0px 15px 0px 0px;
+    transform: translateY(4px);
+  }
+  
+  .disabled-level:active {
+    background-color: #ddd;
+    box-shadow: #ccc 0px 0px 0px 0px;
+    transform: translateY(19px);
+    transition: 20ms;
+  }
