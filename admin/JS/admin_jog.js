@@ -179,6 +179,7 @@ async function pesquisarPalavra(input, number, e){
             input.style.borderColor = "#00dd00bb"
             input.style.color = ""
             input.value = resp.palavra.palavra
+            document.querySelectorAll("div.input.inputpop")[number - 1].innerText = resp.palavra.significado
             palavras_escolhidas[number -1] = resp.palavra.id_palavra
 
             console.log(palavras_escolhidas)
@@ -186,7 +187,7 @@ async function pesquisarPalavra(input, number, e){
             //input.style.boxShadow = "0 0 0 3px #ff8080bb"
             input.style.borderColor = "#ff8080bb"
             input.style.color = "#ff8080bb"
-            document.querySelectorAll("div.input.inputpop")[number - 1].style.color = "#ff8080bb";
+            /*document.querySelectorAll("div.input.inputpop")[number - 1].style.color = "#ff8080bb";
             document.querySelectorAll("div.input.inputpop")[number - 1].innerText = "palavra não encontrada"
 
             setTimeout(()=>{
@@ -195,7 +196,7 @@ async function pesquisarPalavra(input, number, e){
                 //input.style.color = ""
                 document.querySelectorAll("div.input.inputpop")[number - 1].style.color = "";
                 document.querySelectorAll("div.input.inputpop")[number - 1].innerText = ""
-            }, 2000)
+            }, 2000)*/
         }
     }
 }

@@ -2,9 +2,11 @@
 include("conexao.php");
 
 $nivel = $_POST['nivel'];
+$aluno = $_POST['aluno'];
 $message = "";
 $response = [];
 $jogs = [];
+$hp = 0;
 
 function getSignificado(){
 	include("conexao.php");
@@ -123,6 +125,13 @@ try{
   	}*/
 
   }
+  
+  $query = $conn->prepare("SELECT hp from aluno WHERE id_aluno = ?");
+  $query->execute([$aluno]);
+  $rows = $query->fetchAll(
+  	PDO::FETCH_ASSOC
+  );
+  $hp = $rows[0]["hp"];
 
 } catch (PDOException $e) {
   $message = "Erro na conexão";
@@ -136,5 +145,5 @@ try{
 //echo "<br>";
 //echo json_encode(["message" => $message, "data" => getPares()]);
 // echo "<br>";
-echo json_encode(["message" => $message, "data" => $jogs]);
+echo json_encode(["message" => $message, "data" => $jogs, "hp" => $hp]);
 ?>
