@@ -32,9 +32,14 @@ async function getNiveis(){
      	//`
 		
 		let elemento_fase = document.querySelector(`#fase${elemento.id_fase}-cnt`);
-		elemento_fase.innerHTML += `
+		/*elemento_fase.innerHTML += `
 			<button class="level ${elemento.id_nivel == elemento.nivel_actual || elemento.estado ? "" : "disabled-level"}" onclick="${(elemento.nivel_actual == elemento.id_nivel || elemento.estado) ? (elemento.hp > 0 ? `setNivel(${elemento.id_nivel})` : "lowHp()") : "acessBlockedLevel()"}">
 				${elemento.id_nivel == elemento.nivel_actual || !elemento.estado ? `<i class="fa-solid fa-star fa-4x"></i>` : `<i class="fa-solid fa-check fa-4x"></i>`}
+			</button>
+		`*/
+		elemento_fase.innerHTML += `
+			<button class="level ${elemento.id_nivel == elemento.nivel_actual || elemento.estado ? "" : "disabled-level"}" onclick="${(elemento.nivel_actual == elemento.id_nivel || elemento.estado) ? (elemento.hp > 0 ? `setNivel(${elemento.id_nivel})` : "lowHp()") : "acessBlockedLevel()"}">
+				${elemento.estado ? `<i class="fa-solid fa-check fa-4x"></i>` : `<i class="fa-solid fa-star fa-4x"></i>`}
 			</button>
 		`
 

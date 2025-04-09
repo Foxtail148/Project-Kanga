@@ -9,8 +9,8 @@ try{
 	$query = $conn->prepare("INSERT INTO aluno_nivel(estado, id_nivel, id_aluno) VALUES('completo', ?, ?)");
 	$query->execute([$nivel, $aluno]);
 	
-	$query = $conn->prepare("SELECT nivel_actual, ((SELECT xp FROM nivel WHERE id_nivel = ?) / (SELECT COUNT(*) from aluno_nivel WHERE id_nivel = ?)) as tmp_xp from aluno WHERE id_aluno = ?");
-	$query->execute([$nivel, $nivel, $aluno]);
+	$query = $conn->prepare("SELECT nivel_actual, ((SELECT xp FROM nivel WHERE id_nivel = ?) / (SELECT COUNT(*) from aluno_nivel WHERE id_nivel = ? and id_aluno = ?)) as tmp_xp from aluno WHERE id_aluno = ?");
+	$query->execute([$nivel, $nivel, $aluno, $aluno]);
 	$rows = $query->fetchAll(
 		PDO::FETCH_ASSOC
 	);
