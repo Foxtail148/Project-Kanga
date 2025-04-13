@@ -226,6 +226,7 @@ async function chooseWordPares(element, value){
 	}
 
 	else{
+		
 		let tmp_element_class2 = choosenPairsElement.getAttribute("class");
 		if((tmp_element_class.includes("km") && tmp_element_class2.includes("km")) || (tmp_element_class.includes("pt") && tmp_element_class2.includes("pt"))){
 			return;

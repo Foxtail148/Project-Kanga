@@ -13,13 +13,13 @@
  	<div id="jogPage1">
 
  		<div class="progress" onclick="location.href='../html/Interface.html'">
-			<div> <i class="fa-solid fa-xmark fa-2x"></i> </div>
+			<div> <i class="fa-solid fa-xmark fa-3x"></i> </div>
 			
  			<div class="progressBar">
  				<div></div>
  			</div>
  			<div class="heart" >
-                <i class="fa-solid fa-heart fa-2x"></i>
+                <i class="fa-solid fa-heart fa-3x"></i>
 
  				<span id="tentativasSpan">
  					0
@@ -27,7 +27,7 @@
  			</div>
  		</div>
 
- 		<div class="gamingSectionText"> </div>
+ 		<div class="gamingSectionText"></div>
  		<div class="gamingSection jogSign">
  			<!-- <div class="gamingSectionWord" onClick="chooseWordSignificado(this)">palavra</div>
  			<div class="gamingSectionWord" onClick="chooseWordSignificado(this)">palavra</div>
@@ -50,23 +50,36 @@
  				-->
  			</div>
  		</div>
+		
  		<div class="gamingSection jogAudio">
  			<div class="gamingBox">
- 				<div class="littleTriangle">
+
+				<div class="bubble">
+					<img src="../img/bubble.svg" alt="bubble-chat" width="230px">
+					<!-- Depois eu altero as cores do SVG -->
+					<i class="fa-solid fa-volume-high fa-4x" onclick="playAudio()"></i>
+				</div>
+			   
+ 				<div class="littleTriangle"> 
+					<!-- Não sei pq, mas eu tento deletar essa div, o jogo de audio desaparece -->
  					<audio>
  						<source type="">
  					</audio>
  					<div class="innerTriangle"></div>
  				</div>
- 				<div class="signalConteiner">
- 					<svg onclick="playAudio()" xmlns="http://www.w3.org/2000/svg" height="55px" viewBox="0 -960 960 960" width="55px" fill="#4E93D4"><path d="M200-120q-33 0-56.5-23.5T120-200q0-33 23.5-56.5T200-280q33 0 56.5 23.5T280-200q0 33-23.5 56.5T200-120Zm480 0q0-117-44-218.5T516-516q-76-76-177.5-120T120-680v-120q142 0 265 53t216 146q93 93 146 216t53 265H680Zm-240 0q0-67-25-124.5T346-346q-44-44-101.5-69T120-440v-120q92 0 171.5 34.5T431-431q60 60 94.5 139.5T560-120H440Z"/></svg>
- 				</div>
+
+ 				<!-- <div  class="signalConteiner">
+					Socorro
+ 				</div> -->
+				
  			</div>
+
  			<div class="gamingSectionBar">
  				<div class="gamingSectionWord" onclick="chooseWord(this)">Palavra</div>
  				<div class="gamingSectionWord" onclick="chooseWord(this)">Palavra</div>
  				<div class="gamingSectionWord" onclick="chooseWord(this)">Palavra</div>
  			</div>
+
  		</div>
  		<div class="buttonSection">
  			<div class="button" onclick="skip()">Pular</div>

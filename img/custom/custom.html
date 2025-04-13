@@ -9,6 +9,203 @@
     
 </head>
 <body>
+    <style>
+    /* um estilo aleatório  */
+    @import url('../../css/cores.css');
+    .btn{
+        width: 250px; /* Não sei de o width é fixo, mas enfim */
+        height: 80px;
+        align-items: center; 
+        border-radius: 16px;
+        border: 3px solid;
+        font-size: 22px;
+    }
+
+    .normal{
+        background-color: #f8fbff;
+        border-color: #a7a7a7;
+        color: #a7a7a7;
+    }
+    
+    .btn.selected-un{
+    background: #C2E0FE;
+    border: 3px solid #4299EE;
+    color: #4299EE;
+    }
+
+    .selected{
+    border-radius: 15px;
+    border: solid 2px #a7a7a7;
+    background-color: #f8fbff;
+    color:#a7a7a7;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    box-shadow: var(--font-on-stroke) 0px 0px 0px 0px;
+    cursor: pointer;
+    }
+    
+    .selected:active {
+      background-color: #F3F8FF;
+      box-shadow: var(--font-on-stroke) -5px 7px 0px 0px;
+      transform: translate(5px, -7px);
+      transition: 30ms;
+      border: solid 2px var(--font-on-stroke);
+      color: var(--font-on-stroke);
+
+    }
+    .ativo {
+      background-color: #F3F8FF;
+      box-shadow: var(--font-on-stroke) -5px 7px 0px 0px;
+      transform: translate(5px, -7px);
+      transition: 30ms;
+      border: solid 2px var(--font-on-stroke);
+      color: var(--font-on-stroke);
+    }
+
+    .select{
+      background-color: #F3F8FF;
+      box-shadow: var(--font-on-stroke) -5px 7px 0px 0px;
+      transform: translate(5px, -7px);
+      transition: 30ms;
+      border: solid 2px var(--font-on-stroke);
+      color: var(--font-on-stroke);
+    }
+
+    .selected-wrong {
+    border-radius: 15px;
+    border: solid 2px #a7a7a7;
+    background-color: #f8fbff;
+    color:#a7a7a7;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    box-shadow: var(--font-on-stroke) 0px 0px 0px 0px;
+    cursor: pointer;
+    }
+
+    .wrong {
+      background-color: #FFB8B8;
+      box-shadow: #FF5252 -5px 7px 0px 0px;
+      transform: translate(5px, -7px);
+      transition: 30ms;
+      border: solid 2px #FF5252;
+      color: #FF5252;
+
+    }
+
+    .correct{
+      background-color: #DAFFDB;
+      box-shadow: #8FE953 -5px 7px 0px 0px;
+      transform: translate(5px, -7px);
+      transition: 30ms;
+      border: solid 2px #5CCB3C;
+      color: #5CCB3C;;
+    }
+
+/* Obg Chat, não estava aguentar codar no bloco de notas */
+
+</style>
+    <input type="color">
+    <button class="btn normal">Botão Normal</button>
+    <button class="btn selected-un">Botão Indisponivel</button>
+    <button class="btn selected clk">Selecionado</button>
+
+    <button id="btn1" class="btn selected">Selecionado Bom</button>
+    <button id="btn2" class="btn selected">Selecionado Bom</button>
+
+    <button id="btn3" class="btn selected">Botão Mau</button>
+    <button id="btn4" class="btn selected">Botão Mau</button>
+
+   <script>
+
+    // button clicked
+    const botoes = document.querySelectorAll(".clk");
+
+botoes.forEach(botao => {
+  botao.addEventListener("click", function () {
+    this.classList.toggle("ativo");
+  });
+});
+
+    // Button Correct
+
+    const btn1 = document.getElementById("btn1");
+    const btn2 = document.getElementById("btn2");
+    const btn3 = document.getElementById("btn3");
+    const btn4 = document.getElementById("btn4");
+  
+ 	let btn1cl = false;
+ 	let btn2cl = false;
+        let btn3cl = false;
+ 	let btn4cl = false;
+
+ //////////////////////////////////////////////
+
+	btn1.addEventListener("click",() =>{
+	btn1cl = true;
+	btn1.classList.add("select");
+	correto();
+	});
+
+
+        btn2.addEventListener("click",() =>{
+	btn2cl = true;
+	btn2.classList.add("select");
+	correto();
+	});
+	
+	
+	function correto(){
+	if (btn1cl && btn2cl){
+
+	btn1.classList.add("correct");
+	btn2.classList.add("correct");
+	// footer.style.display = "block";  Deixou de existir
+	setTimeout(() => {
+
+	btn1.classList.remove("correct", "select");
+	btn2.classList.remove("correct", "select");
+
+   	btn1.classList.add("selected-un");
+   	btn2.classList.add("selected-un");
+
+    // footer.style.display = "none"; Deixou de existir
+	btn1cl = false;
+ 	btn2cl = false; 
+                 }, 1000);
+	       }
+             }
+    // End Button Correct
+
+    // Button Wrong
+
+	btn3.addEventListener("click",() =>{
+	btn3cl = true;
+	btn3.classList.add("select");
+        errado();
+	});
+
+
+        btn4.addEventListener("click",() =>{
+	btn4cl = true;
+	btn4.classList.add("select");
+	errado();
+	});
+
+
+	function errado(){
+    if (btn3cl && btn4cl){
+        btn3.classList.add("wrong");
+        btn4.classList.add("wrong");
+        setTimeout(() => {
+            btn3.classList.remove("wrong", "select"); // Remover 'wrong' e 'select'
+            btn4.classList.remove("wrong", "select");
+            btn3cl = false;
+            btn4cl = false;
+        }, 1000);
+    }
+}
+   
+    </script>
 
 <!-- -botões  -->
 <main class="botoes">
