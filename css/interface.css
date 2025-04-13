@@ -37,22 +37,42 @@ body{
 
    .char{
     width: 100%;
-    max-width: 300px;  
-    height: 180px;
+    max-width: 250px;  
+    height: 300px;
     margin-left: 30px;
     margin-top: 30px;
-    /* padding: 0px 70px; */
     background: #e7eefe;
     display:flex;
-    justify-content: space-evenly;
+    flex-direction: column; 
+    justify-content: space-evenly; 
     align-items: center; 
+    padding:10px;
     border-radius: 25px;
+    transition: 0.3s;
     /* border: 4px solid #5a5a5a; */
   }
   
 .char:hover{
   background-color: #ffff;
   transition: 0.3s;
+}
+.cd{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ca div{
+  display:flex;
+  gap: 10px;
+  /* flex-direction: column; */
+}
+.circle{
+  font-size: 16px !important ;
+  background: #c4d6e7;
+  width: fit-content;
+  padding: 15px;
+  border-radius: 100%;
+  
 }
   .char span{
     display: flex;
@@ -72,13 +92,13 @@ body{
     border: none;
     background: #b8fc9e;
     transition: .4s;
-    width:100%;
+    width:60%;
   }
   
   .char button:hover{
     background: #78f547;
   }
-  .char i{ color: #b81010;}
+  .char i{ color: #da4f4f;}
 
    .box{
     display:flex;
@@ -131,13 +151,6 @@ body{
     border-radius: 10px;
     color: white;
     font-size: 16px;
-   }
-
-   .level-header button:hover{
-    /* background-color: #ff3856;
-    box-shadow: #c92e45 0px 0px 0px 0px;
-    transform: translate(19px, 1px);
-    transition: 20ms; */
    }
    
    .scrolled {
