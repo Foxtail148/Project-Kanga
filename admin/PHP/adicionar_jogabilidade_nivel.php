@@ -8,7 +8,6 @@ $nivel = $_POST["nivel"];
 $palavras = explode(",", $_POST["palavras"]);
 
 
-
 $mensagem = "";
 $consulta = $conexao->prepare("INSERT INTO jogabilidade_nivel(id_jogabilidade, id_nivel) values((SELECT id_jogabilidade from jogabilidade where tipo = ?), ?)");
 $consulta->execute([$tipo, $nivel]);

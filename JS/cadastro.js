@@ -19,7 +19,7 @@ async function cadastro(){
   if(res.message)
     alert(res.message)
   else
- 
+    alert("Cadastrado com sucesso")
     location.href = "../HTML/login.html"
 }
 
@@ -59,8 +59,8 @@ function  validarCadastro() {
     alert("O email deve conter letras");
     return false;
   }
-  else if(senha.value.length < 6){
-    alert("Senha muito curta | min: 6");
+  else if(senha.value.length < 8){
+    alert("Senha muito curta | min: 8");
     return false;
   }
   else

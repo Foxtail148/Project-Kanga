@@ -29,6 +29,7 @@ async function pegarDados() {
 
 	let formData = new FormData();
 	formData.append("nivel", params.get("nivel"));
+	formData.append("aluno", localStorage.getItem("id"));
 
 	let obj	= await	fetch("../PHP/jogabilidade.php", {
 		method: "POST",
@@ -38,7 +39,7 @@ async function pegarDados() {
 	let res = await	obj.json();
 
 	if(res.message)
-		alert(message)
+		alert(res.message)
 	else{
 		res.data.map((elemento, index)=>{
 				//if(elemento.tipo == "significado"){
@@ -47,7 +48,9 @@ async function pegarDados() {
 
 		})
 
-		console.log(menus)
+		tentativas = res.hp;
+		//console.log(menus)
+		updateProgress();
 
 		iniciar();
 	}
@@ -57,9 +60,7 @@ function iniciar(){
 	//document.querySelector(".gamingSectionText").innerText = "O que significa "+`"`+menus[jogo_actual].texto+`"`+"?";
 
 	if(progress >= menus.length){
-		alert("Nível completado!");
-		location.href = "../HTML/Interface.html"
-
+		proximoNivel();
 		return;
 	}
 
@@ -133,14 +134,30 @@ function iniciar(){
 		tmp_element.style.display = "flex"
 
 		menus[jogo_actual].palavras.map((elemento, index)=>{
+			let fim1 = getRandomInt(0, 2);
+			let fim2 = getRandomInt(0, 2);
 			//alert(elemento.significado)
-			document.querySelector(".gamingSection.jogPares .paresPt").innerHTML+=`
-				<div class="gamingSectionWord pt" onclick='chooseWordPares(this, "${elemento.palavra}")'>${elemento.palavra}</div>
-			`
+			if(fim1){
+				document.querySelector(".gamingSection.jogPares .paresPt").innerHTML+=`
+					<div class="gamingSectionWord pt" onclick='chooseWordPares(this, "${elemento.palavra}")'>${elemento.palavra}</div>
+				`
+			}
+			else{
+				document.querySelector(".gamingSection.jogPares .paresPt").innerHTML=`
+					<div class="gamingSectionWord pt" onclick='chooseWordPares(this, "${elemento.palavra}")'>${elemento.palavra}</div>
+				` + document.querySelector(".gamingSection.jogPares .paresPt").innerHTML
+			}
 
-			document.querySelector(".gamingSection.jogPares .paresKm").innerHTML+=`
-				<div class="gamingSectionWord km" onclick='chooseWordPares(this, "${elemento.palavra}")'>${elemento.significado}</div>
-			`
+			if(fim2){
+				document.querySelector(".gamingSection.jogPares .paresKm").innerHTML+=`
+					<div class="gamingSectionWord km" onclick='chooseWordPares(this, "${elemento.palavra}")'>${elemento.significado}</div>
+				`
+			}
+			else{
+				document.querySelector(".gamingSection.jogPares .paresKm").innerHTML=`
+					<div class="gamingSectionWord km" onclick='chooseWordPares(this, "${elemento.palavra}")'>${elemento.significado}</div>
+				` + document.querySelector(".gamingSection.jogPares .paresKm").innerHTML;
+			}
 		})
 	}
 }
@@ -163,6 +180,7 @@ async function chooseWordSignificado(element, value){
 	}
 	else{
 		element.setAttribute("class", tmp_element_class+" gamingSectionWrongWord")
+		errou();
 		tentativas--
 		updateProgress()
 
@@ -186,6 +204,7 @@ async function chooseWordAudio(element, value){
 	}
 	else{
 		element.setAttribute("class", tmp_element_class+" gamingSectionWrongWord")
+		errou();
 		tentativas--
 		updateProgress()
 	}
@@ -240,6 +259,7 @@ async function chooseWordPares(element, value){
 		}
 
 		else {
+			errou();
 			tentativas--
 			updateProgress();
 			choosenPairsElement.setAttribute("class", "gamingSectionWord gamingSectionWrongWord")
@@ -280,14 +300,16 @@ async function acertou(element){
 	}
 }
 
-async function errou(element){
-	element.setAttribute("class", "gamingSectionWord gamingSectionWrongWord")
+async function errou(){
+	/*element.setAttribute("class", "gamingSectionWord gamingSectionWrongWord")
 	if(tentativas == 1){
 		location.href = location.href
 	}
 	tentativas --;
 	updateTentativas()
 	//alert("Errou")
+	*/
+	await fetch("../PHP/decreaseHp.php?aluno="+(localStorage.getItem("id")));
 }
 
 async function proximoNivel(){
@@ -302,6 +324,15 @@ async function proximoNivel(){
 		method: "POST",
 		body: formData
 	});
+
+	let resp = await obj.json();
+
+	if(resp.message)
+		alert(resp.message)
+	else{
+		alert("Nível completado!");
+		location.href = "../HTML/Interface.html"
+	}
 }
 
 async function updateProgress(){

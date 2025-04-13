@@ -3,17 +3,15 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body{
     width: 100%;
     height: 100%; 
     display: flex;
     justify-content: space-between;
+    background-color: #eff3fd;
     /* gap: 1%;  tem de sair; */
 }
-
-.align-header{
-    margin-top: 2rem;  
-  }
   
   .main{
     /* background-color: aquamarine;  */
@@ -26,25 +24,25 @@ body{
     min-height: 420vh; 
     margin-right: 300px; 
    }
-   .level-header{
-   margin-top: 40px;
-   }
-   
+
    .charts{
-   width: 350px; 
+   min-width: 350px; 
    position:fixed; 
    right:0 ;
    display:flex;
-   margin-top: 60px;
+   margin-top: 80px;
    flex-direction: column;
    transition: .4s;
    }
+
    .char{
     width: 100%;
     max-width: 300px;  
     height: 180px;
+    margin-left: 30px;
+    margin-top: 30px;
     /* padding: 0px 70px; */
-    /* background: #ffffff; */
+    background: #e7eefe;
     display:flex;
     justify-content: space-evenly;
     align-items: center; 
@@ -53,30 +51,34 @@ body{
   }
   
 .char:hover{
-  background-color:#eff9ff ;
+  background-color: #ffff;
   transition: 0.3s;
 }
   .char span{
     display: flex;
     flex-direction: column;
     margin: 5px 0;
-    font-size: 24px
+    font-size: 24px;
   }
+  /* .char div div span{} */
+
   .char button{
     display: flex;
     flex-direction: column;
     margin: 5px 0;
-    padding: 14px 0;
+    padding: 10px 5px;
     font-size: 16px;
     border-radius: 10px;
     border: none;
-    background: #c8f8b5;
+    background: #b8fc9e;
     transition: .4s;
+    width:100%;
   }
   
   .char button:hover{
-    background: #8bf960;
+    background: #78f547;
   }
+  .char i{ color: #b81010;}
 
    .box{
     display:flex;
@@ -87,6 +89,7 @@ body{
     height: 100px;
     /* background-color:beige; */
    }
+
   .total{
     display:flex;
     align-items: center;
@@ -95,36 +98,51 @@ body{
 
   }
 
+  .align-header{
+    margin-top: 2rem;  
+  }
+    .level-header h1{
+      margin-bottom: 10px ;
+    /* margin-top: 1000px; */
+    }
+
   .level-header{
-   position: sticky;
-   top: 2.5rem;
+    position: sticky;
+    top: 2.5rem;
     z-index: 1000; 
     width: 70%;
 
-    transition: background-color 0.4s ease-in-out, border 0.4s ease-in-out;
-
-    background-color: blue;
+    /* transition: background-color 0.4s ease-in-out, border 0.4s ease-in-out; */
+    background-color: #0B76DD;
     display:flex;
     padding: 50px ;
     border-radius: 30px;
     justify-content: space-between;
-    border: 5px solid rgb(11, 11, 180) ;
-    box-shadow: -6px 10px 0 #1424d4;
+    border: 5px solid #00264B ;
+    box-shadow: -6px 10px 0 #00264B;
 
    }
 
    .level-header button{
-    background-color:#12128d;
-    border: 2px solid rgb(15, 15, 103) ;
-    box-shadow: -6px 10px 0 #1424d4;
+    background-color:#60B1FF;
+    border: 3px solid #00366B ;
+    box-shadow: -5px 9px 0 #00366B;
     padding: 0px 30px;
     border-radius: 10px;
     color: white;
-
+    font-size: 16px;
    }
+
+   .level-header button:hover{
+    /* background-color: #ff3856;
+    box-shadow: #c92e45 0px 0px 0px 0px;
+    transform: translate(19px, 1px);
+    transition: 20ms; */
+   }
+   
    .scrolled {
     background-color: var(--header-f1-dark); /* Mude para a cor desejada */
-    transition: background-color 0.4s ease-in-out;
+    /* transition: background-color 0.4s ease-in-out; */
   }
 
   .level-conteiner{
@@ -158,6 +176,24 @@ body{
   .level:active {
     background-color: rgb(255, 56, 86);
     box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
+    transform: translateY(19px);
+    transition: 20ms;
+  }
+
+
+  .disabled-level{
+    background-color: #ddd;
+    box-shadow:  #ccc 0px 18px 0px 0px;
+  }
+
+  .disabled-level:hover {
+    box-shadow: #ccc 0px 15px 0px 0px;
+    transform: translateY(4px);
+  }
+  
+  .disabled-level:active {
+    background-color: #ddd;
+    box-shadow: #ccc 0px 0px 0px 0px;
     transform: translateY(19px);
     transition: 20ms;
   }

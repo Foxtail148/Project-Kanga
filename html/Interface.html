@@ -7,7 +7,6 @@
     <title>Interface</title>
     <link rel="stylesheet" href="../CSS/bar.css">
     <link rel="stylesheet" href="../CSS/interface.css">
-
 </head>
 <body>
 
@@ -18,25 +17,30 @@
         <li> <a href="tradutor.html" id="item2"> <i class="fa-solid fa-comment"></i> Tradutor</a> </li>
         <li> <a href="perfil.html" id="item3"> <i class="fa-solid fa-circle-user"></i> Perfil</a> </li>
     </ul>
-    <button>Sair</button>
+    <button> Sair </button>
   </div>
 
     <main class="main">
          <header class="level-header">
-             <div> <h1>Ayó,  
+            <div class="word"> 
+            <h1>Ayó,  
                 <script>document.write(localStorage.getItem("nome").split(" ")[0])
                 // Bunito*
                 </script>
             </h1> 
-             <span>Começe no seu nivel atual</span></div>
+             <span>Começe no seu nivel atual</span>
+            </div>
+
              <button>Começar</button>
          </header>
+
          <div class="level-conteiner e" id="fase1-cnt">
-          <button class="level"><i class="fa-solid fa-check fa-4x"></i></button>
+          <!-- <button class="level"><i class="fa-solid fa-check fa-4x"></i></button>
           <button class="level"><i class="fa-solid fa-check fa-4x"></i></button>
           <button class="level"><i class="fa-solid fa-check fa-4x"></i></button>
           <button class="level"><i class="fa-solid fa-check fa-4x"></i></button>
           <button class="level"><i class="fa-solid fa-star fa-4x"></i></button>
+            -->
          </div>
  
          <div class="level-conteiner d" id="fase2-cnt">
@@ -72,23 +76,25 @@
      
     <div class="charts">
          <header class="box" >
-             <div class="total">
+             <div class="total hp">
               <img src="../img/Heart.svg" width="50px" >
                  <span>0</span>
              </div>
              
-             <div class="total">
+             <div class="total xp">
                  <img src="../img/XP.svg" alt="" srcset="" width="50px" >
-                 </i><span>0</span>
+                 <span>0</span>
              </div>
          </header>
 
-         <div class="char">
-            <img src="../img/Heart.svg" width="60px">
-            <span>
-                <span>Carregar 1</span>
-                <button>Carregar</button>
-            </span>
+         <div class="char"> <!-- Eu quero que essa span só exista quando o user não tem nenhuma vida-->
+         
+            <i class="fa-solid fa-heart-crack fa-flip-horizontal fa-3x"></i>
+            <!-- <img src="../img/Heart.svg" width="60px"> --> 
+            <div>
+                <div> <span>Volta 1 em: <span>04:59</span> </span></div>
+                <button onclick="location.href='perfil.html'">Carregar</button>
+            </div>
         </div>
      </div>
 </body>
@@ -148,7 +154,6 @@
  <script src="../JS/niveis.js"></script>
  <script src="../JS/sb.js"></script>
  <script src="../JS/logout.js"></script>
- <script src="../JS/niveis.js"></script>
-</script>
+ <script src="../JS/stats.js"></script>
 </body>
 </html>
