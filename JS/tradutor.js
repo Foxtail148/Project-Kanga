@@ -2,7 +2,10 @@ const campo_pesquisa = document.getElementById("campo-pesquisa");
 const botao = document.getElementById("botao-pesquisa");
 const lacuna = document.getElementById("lacuna-pesquisa");
 
-botao.addEventListener('click', function() {
+botao.addEventListener('keyup', function() {
+
+alert(1)
+return;
  const palavra = campo_pesquisa.value.trim();
 
  const result_falsos= ['Resultado 1', 'Resultado 2', 'Resultado 3'];
