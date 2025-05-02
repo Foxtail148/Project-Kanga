@@ -11,25 +11,29 @@
 <body>
 
   <div id="sidebar-container" class="sidebar">
-    <img src="../img/LogoLightmode.svg" width="180px" alt="Logo 'Kanga'" style="margin-top: 20px">
+    <img src="../img/LogoLightmode.svg" width="160px" alt="Logo 'Kanga'" style="margin-top: 50px">
     <ul>
         <li> <a href="interface.html" id="item1"> <i class="fa-solid fa-book"></i>  Aprender</a> </li>
         <li> <a href="tradutor.html" id="item2"> <i class="fa-solid fa-comment"></i> Tradutor</a> </li>
         <li> <a href="perfil.html" id="item3"> <i class="fa-solid fa-circle-user"></i> Perfil</a> </li>
     </ul>
-    <button>Sair</button>
+    <button> Sair </button>
   </div>
 
     <main class="main">
          <header class="level-header">
-             <div> <h1>Ayó,  
+            <div class="word"> 
+            <h1>Ayó,  
                 <script>document.write(localStorage.getItem("nome").split(" ")[0])
                 // Bunito*
                 </script>
             </h1> 
-             <span>Começe no seu nivel atual</span></div>
+             <span>Começe no seu nivel atual</span>
+            </div>
+
              <button>Começar</button>
          </header>
+
          <div class="level-conteiner e" id="fase1-cnt">
           <!-- <button class="level"><i class="fa-solid fa-check fa-4x"></i></button>
           <button class="level"><i class="fa-solid fa-check fa-4x"></i></button>
@@ -50,7 +54,7 @@
          </div>
  
          <div class="level-conteiner e" id="fase3-cnt">
-    	<!--
+        <!--
             <button class="level"><i class="fa-solid fa-check fa-4x"></i></button>
           <button class="level"><i class="fa-solid fa-check fa-4x"></i></button>
           <button class="level"><i class="fa-solid fa-check fa-4x"></i></button>
@@ -83,12 +87,18 @@
              </div>
          </header>
 
-         <div class="char">
-            <img src="../img/Heart.svg" width="60px">
-            <span>
-                <span>Carregar 1</span>
-                <button>Carregar</button>
+        <div class="char"> <!-- Eu quero que essa span só exista quando o user não tem nenhuma vida-->
+            <div class="cd">
+            <span class="circle">
+                <i class="fa-solid fa-heart-crack fa-flip-horizontal fa-3x"></i>
             </span>
+            <h2>Estás sem vidas</h2>
+            </div>
+
+            <div class="ca">
+                <div> <span>Volta em: </span> <span>04:59</span> </div>
+            </div>
+            <button onclick="location.href='perfil.html'">Carregar</button>
         </div>
      </div>
 </body>
