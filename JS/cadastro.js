@@ -18,9 +18,10 @@ async function cadastro(){
 
   if(res.message)
     alert(res.message)
-  else
+  else{
     alert("Cadastrado com sucesso")
     location.href = "../HTML/login.html"
+  }
 }
 
 

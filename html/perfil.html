@@ -39,7 +39,7 @@
                                 </button>
                             </li>
                             <li>
-                                <button>
+                                <button onclick="logout()">
                                 <i class="fa-solid fa-right-from-bracket fa-rotate-180"></i>
                                     <span>Mudar de Conta</span>
                                 </button>
@@ -54,22 +54,22 @@
         <section class="items1">
            
             <div class="box">
-                <span>F</span>
+                <span class="span_initial"></span>
             </div>
 
             <div class="choose">
                 
                 <div class="inbox">
                     <span>Nome</span>
-                    <span>fulana_de_tal</span>
+                    <span class="span_name"></span>
                 </div>
                 <div class="inbox">
                     <span>Email</span>
-                    <span>inglêsias@gmail.com</span>
+                    <span class="span_email"></span>
                 </div>
                 <div class="inbox">
                     <span>Aderiu em:</span>
-                    <span>10/23/2067</span>
+                    <span class="span_data"></span>
                 </div>
             </div>
 
@@ -80,16 +80,14 @@
             <div class="char">
                 <img src="../img/Heart.svg" width="80px">
                 <span>
-                    <span>5</span>
-                    <span>Cheio</span>
+                    <span class="span_hp"></span>
                 </span>
             </div>
 
             <div class="char">
                 <img src="../img/XP.svg" width="80px">
                 <span>
-                    <span>200</span>
-                    <span>XP armazenado</span>
+                    <span class="span_xp"></span>
                 </span>
                 
             </div>
@@ -130,6 +128,7 @@
 
     <script src="../JS/sb.js"></script>
     <script src="../JS/logout.js"></script>
+    <script src="../JS/perfil.js"></script>
 </body>
 
 </html>

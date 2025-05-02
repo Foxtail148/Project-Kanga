@@ -34,7 +34,7 @@ body {
   
   .input:hover {
     border: 2px solid #cd8518;
-    box-shadow: 0px 0px 20px -10px rgb(187, 67, 67);
+    box-shadow: 0px 0px 20px -10px #bb4343;
   }
   .input:active { transform: scale(0.95); }
   .input:focus { border: 2px solid #4c2b07;}
@@ -55,14 +55,18 @@ body {
       margin-top:120px;
     }
     .res{
-      min-width:250px;
+      min-width:220px;
       background-color: #fff4df;
       width:50%;
-      padding: 20px;
+      padding: 10px 25px;
       display:flex;
       align-items: center;
       justify-content: space-between;
       border-radius: 15px;
-      box-shadow: -10px 3px 0 #a47d35;
+      box-shadow: -10px 3px 0 #e0ad4f;
       margin: 10px 10px;
+      font-size: 20px;
     }
+    .res button{ font-size:18px; padding: 10px; border: none; background: none; border-radius:20px;transition: .3s;}
+    .res button:hover{ background: #f8af61; transition: .3s;}
+    .res button:active{ background: #e39542;}
