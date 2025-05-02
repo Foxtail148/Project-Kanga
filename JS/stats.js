@@ -25,7 +25,7 @@ async function getStats(){
 			location.href = "../jogar?nivel="+resp.data.nivel_actual
 		}
 
-		if(res.data.hp < 5){
+		if(resp.data.hp < 5){
 			document.querySelector(".char").style.display = "flex"
 		} else {
 			document.querySelector(".char").style.display = "none"
