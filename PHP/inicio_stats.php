@@ -24,7 +24,7 @@ echo json_encode(["message" => $message, "data" => $response]);
 */
 
 try {
-  $query = $conn->prepare("SELECT hp, xp from aluno WHERE id_aluno = ?");
+  $query = $conn->prepare("SELECT hp, xp, nivel_actual from aluno WHERE id_aluno = ?");
   $query->execute([$id_aluno]);
   
   $res = $query->fetchAll(

@@ -11,6 +11,21 @@ html, body{
 	height: 100%;
 	width: 100%;
 }
+.bubble{
+	position: relative;
+	display: inline-block; 
+  }
+  
+  .bubble img {
+	display: block;
+  }
+  
+  .bubble i {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  }
 
 #jogPage1{
 	display: flex;
@@ -47,25 +62,21 @@ html, body{
 }
 .heart{
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
 	align-items: center;
-	/*background: yellow;*/
+	/* background: yellow; */
+	/* width: 200px; */
 }
-.heart svg, .heart small{
-	position: relative;
-}
-
-.heart small{
-	right: 50%;
-	font-weight: bolder;
-	color: white;
+.heart span{
+	padding-left: 10px;
+	font-size: 20px;
+	font-weight: bold;
 }
 
 .gamingSection{
 	width: 100%;
 	height: 100%;
-
-	background: /*yellow*/ white;
+	/* background: yellow; */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -78,6 +89,7 @@ html, body{
 	padding: 10px 70px 10px;
 	width: 100%;
 	color: #888;
+	/* height: 100%; */
 }
 
 .gamingBox{
@@ -87,6 +99,7 @@ html, body{
 }
 
 .littleTriangle{
+	display:none; /* Não vi outra solução */
 	position: relative;
 	right: -2px;
 	height: 0;
@@ -94,10 +107,11 @@ html, body{
 	border-top: 16px solid transparent;
 	border-bottom: 16px solid transparent;
 
-	border-right: 45px solid #8DBBEF;
+	/* border-right: 45px solid #8DBBEF; */
 }
 
 .innerTriangle{
+	display:none;
 	position: relative;
 	top: -13px;
 	right: -7px;
@@ -106,8 +120,9 @@ html, body{
 	border-top: 13px solid transparent;
 	border-bottom: 13px solid transparent;
 
-	border-right: 38px solid #DDEDFD;
+	border-right: 38px solid #00ff15;
 }
+
 .signalConteiner{
 	background:  #DDEDFD;
 	width: 200px;
@@ -120,29 +135,28 @@ html, body{
 } 
 
 .gamingSectionWord{
-	font-weight: bolder;
-	font-size: 25px;
-	padding: 	10px;
+	font-size: 22px;
+	padding: 10px;
 	width: 250px;
-	max-width: 420px;
-	min-width: fit-content;
-	/*box-shadow: -3px 3px 0 5px #A9A9A9;*/
-	/*box-shadow: 0px 0px 0 2px #C2C3C7;*/
-	border: solid 2px #C2C3C7;
-	border-radius: 15px;
+	height: 70px;
+	border: 3px solid #C2C3C7;
+	border-radius: 16px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: #A9A9A9;
 	cursor: pointer;
+	/* background-color: #f8fbff; */
+	border-color: #a7a7a7;
+	color: #a7a7a7;
+	transition: .3s;
 }
-/*.gamingSectionWordPair{
-	display: flex;
-	width: 100%;
-	align-items: center;
-	justify-content: center;
-	gap: 70px;
-}*/
+
+.gamingSectionWord:hover{
+	background-color: #dbdbf9;
+	border: none;
+	transition: .3s;
+}
+
 .gamingSectionBar{
  display: flex;
  width: 100%;
@@ -150,19 +164,15 @@ html, body{
  justify-content: center;
  gap: 30px;
 }
-.gamingSectionWord:hover{
-	box-shadow: -3px 3px 0 0 #81BDF9;
-	border: solid 2px #81BDF9;
-	color: #81BDF9;
-}
+
 
 
 .buttonSection{
 	width: 100%;
-	height: 100px;
+	height: 200px;
 	background: white;
 	border-top: solid 2.5px #D6D9DE;
-	padding: 	20px 40px;
+	padding: 20px 60px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -171,7 +181,7 @@ html, body{
 .buttonSection .button{
 	font-weight: bolder;
 	font-size: 25px;
-	padding: 	10px 30px;
+	padding: 10px 30px;
 	box-shadow: -1.5px 1px 0 3.5px #A9A9A9;
 	border-radius: 13px;
 	display: flex;
@@ -211,6 +221,7 @@ html, body{
 	justify-content: center;
 	gap: 30px;
 }
+
 .jogPares .gamingSectionWord:hover{
 	box-shadow: none;
 	border: solid 2px #C2C3C7;

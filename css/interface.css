@@ -42,7 +42,8 @@ body{
     margin-left: 30px;
     margin-top: 30px;
     background: #e7eefe;
-    display:flex;
+    /*display: flex*/
+    display: none;
     flex-direction: column; 
     justify-content: space-evenly; 
     align-items: center; 

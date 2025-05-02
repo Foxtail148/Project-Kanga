@@ -21,6 +21,15 @@ async function getStats(){
 		stats.hp = resp.data.hp
 		stats.xp = resp.data.xp
 
+		document.querySelector(".start_btn").onclick = function(){
+			location.href = "../jogar?nivel="+resp.data.nivel_actual
+		}
+
+		if(res.data.hp < 5){
+			document.querySelector(".char").style.display = "flex"
+		} else {
+			document.querySelector(".char").style.display = "none"
+		}
 		//alert(resp.data.hp)
 	}
 }
