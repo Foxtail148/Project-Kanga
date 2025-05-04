@@ -1,12 +1,25 @@
 <?php
 include("conexao.php");
 
-$consulta = $conexao->prepare("SELECT * from palavra");
-$consulta->execute();
+$query = "%".$_GET["query"]."%";
+$res = [];
 
-$res = $consulta->fetchAll(
-	PDO::FETCH_ASSOC
-);
+if($query){
+	$consulta = $conexao->prepare("SELECT * from palavra where palavra LIKE ? or significado LIKE ?");
+	$consulta->execute([$query, $query]);
+
+	$res = $consulta->fetchAll(
+		PDO::FETCH_ASSOC
+	);
+} else {
+	$consulta = $conexao->prepare("SELECT * from palavra");
+	$consulta->execute();
+
+	$res = $consulta->fetchAll(
+		PDO::FETCH_ASSOC
+	);
+}
+
 
 echo json_encode(["palavras" => $res]);
 ?>

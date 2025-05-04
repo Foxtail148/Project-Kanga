@@ -112,17 +112,19 @@ async function adicionarPalavra(){
     }
     
 }
-function abrirPopupEditar(id, palavra, tipo, ) {
-    let linha = botao.parentElement.parentElement; // Pegando a linha correta
+
+function abrirPopupEditar(id, palavra, significado, audio) {
+    /*let linha = botao.parentElement.parentElement; // Pegando a linha correta*/
 
     //let palavra = linha.children[1].textContent;
     //let traducao = linha.children[2].textContent;
-    let audioPath = linha.children[3].textContent;
+    /*let audioPath = linha.children[3].textContent;*/
 
     // Preenchendo os campos do popup de edição
+    document.getElementById("edit_id_input").value = id;
     document.getElementById("edit_palavra_input").value = palavra;
-    document.getElementById("edit_significado_input").value = traducao;
-    document.getElementById("edit_audio_label").innerText = audioPath;
+    document.getElementById("edit_significado_input").value = significado;
+    document.getElementById("edit_audio_label").innerText = audio;
 
     // Exibir popup e overlay
     document.getElementById("overlay-editar").style.display = "block";
@@ -133,6 +135,42 @@ function fecharPopupEditar() {
     document.getElementById("overlay-editar").style.display = "none";
     document.getElementById("popup-editar").style.display = "none";
 }
+
+async function salvarEdicao(){
+    let palavra = edit_palavra_input.value;
+    let significado = edit_significado_input.value;
+    let audio = edit_audio_file.files[0];
+    let edit_id_palavra = edit_id_input.value;
+    if( palavra == "" || significado == "" || audio == undefined || audio == null || edit_audio_label.innerText == "Áudio"){
+        alert("Preencha todos os campos")
+        return null;
+    }
+
+    let formdata = new FormData();
+
+    formdata.append("id", edit_id_palavra);
+    formdata.append("audio", audio);
+    formdata.append("palavra", palavra);
+    formdata.append("significado", significado);
+
+    //alert("Passou")
+
+    let obj = await fetch("../PHP/editar_palavra.php", {
+        method: "POST",
+        "Content-Type": "multipart/form-data",
+        body: formdata
+    });
+
+    let resp = await obj.json();
+
+    if(resp.mensagem){
+        alert(resp.mensagem);
+    } else {
+        fecharPopupEditar();
+        alert("Palavra alterada");
+    }
+}
+
 function deletarPalavra() {
     let palavra = document.getElementById("edit_palavra_input").value;
     
@@ -156,36 +194,49 @@ function deletarPalavra() {
 let total_palavras = 0;
 
 async function carregarPalavras(){
-    let obj = await fetch("../PHP/carregar_palavras.php");
+    let url = `../PHP/carregar_palavras.php?query=${search_input.value}`;
+    let obj = await fetch(url);
     let resp = await obj.json();
-
+    let tmp_html = "";
 
     resp.palavras.map((pal, index)=>{
-
-        if(index < total_palavras)
-            return null;
-
         let novaRow = document.createElement("div");
         //novaRow.classList.add("row");   
-        novaRow.classList.add("campos");
+        /*novaRow.classList.add("campos");
         novaRow.classList.add("jb-ed");
         novaRow.innerHTML = `
             <div>${pal.id_palavra}</div>
             <div>${pal.palavra}</div>
             <div>${pal.significado}</div>
             <div>${pal.audio}</div>
-            <button onclick="abrirPopupEditar(this)">Editar</button>
-        `;
+            <button onclick="abrirPopupEditar(${pal.id_palavra}, '${pal.palavra}', '${pal.significado}', '${pal.audio}')">Editar</button>
+        `;*/
         
-        total_palavras++;
-        document.body.appendChild(novaRow);
+        tmp_html += `
+            <div class="campos jb-ed">
+                <div>${pal.id_palavra}</div>
+                <div>${pal.palavra}</div>
+                <div>${pal.significado}</div>
+                <div>${pal.audio}</div>
+                <button onclick="abrirPopupEditar(${pal.id_palavra}, '${pal.palavra}', '${pal.significado}', '${pal.audio}')">Editar</button>      
+            </div>
+        `
         //alert(total_palavras)
     })
+
+    document.getElementById("words-receiver").innerHTML = tmp_html;
 
 }
 
 carregarPalavras();
+setInterval(()=>{
+    carregarPalavras();
+}, 2000)
 
 function fileChanged(){
     audio_label.innerText = audio_file.files[0] ? audio_file.files[0].name : "Áudio";
+}
+
+function fileChangedEditar(){
+    edit_audio_label.innerText = edit_audio_file.files[0] ? edit_audio_file.files[0].name : "Áudio";
 }

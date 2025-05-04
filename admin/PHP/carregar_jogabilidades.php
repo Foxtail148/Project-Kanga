@@ -12,12 +12,13 @@ $res = $consulta->fetchAll(
 $resposta = [];
 
 for($i = 0; $i < sizeof($res); $i++){
-	$consulta = $conexao->prepare("SELECT palavra from jogabilidade_nivel_palavra join palavra where jogabilidade_nivel_palavra.id_palavra = palavra.id_palavra and jogabilidade_nivel_palavra.id_jogabilidade_nivel = ?");
+	$consulta = $conexao->prepare("SELECT palavra, palavra.id_palavra, palavra.significado from jogabilidade_nivel_palavra join palavra where jogabilidade_nivel_palavra.id_palavra = palavra.id_palavra and jogabilidade_nivel_palavra.id_jogabilidade_nivel = ?");
 	$consulta->execute([$res[$i]["id_jogabilidade_nivel"]]);
 	$ver = $consulta->fetchAll(
 		PDO::FETCH_ASSOC
 	);
 	$resposta[] = [
+		"id" => $res[$i]["id_jogabilidade_nivel"],
 		"tipo" => $res[$i]["tipo"],
 		"palavras" => $ver
 	];

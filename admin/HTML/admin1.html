@@ -55,7 +55,7 @@
             </div>
     
             <div class="lb-choose"> 
-                <input placeholder="Pesquisar" type="search" class="input">
+                <input placeholder="Pesquisar" type="search" class="input" id="search_input">
                 <button onclick="abrirPopup()">Adicionar</button>
             </div>
             
@@ -122,13 +122,14 @@
             </div>
             <div class="pop-btn">
                 <button class="btn-pop" onclick="salvarEdicao()">Salvar</button>
-                <button class="btn-pop delete-btn" onclick="deletarPalavra()">Excluir</button>
+                <!-- <button class="btn-pop delete-btn" onclick="deletarPalavra()">Excluir</button> -->
                 <button class="btn-pop" onclick="fecharPopupEditar()">Sair</button>
             </div>
         </div>
     
         <div class="lb-search pop"> 
-            <span class="sp">Editar Palavra:</span> 
+            <span class="sp">Editar Palavra:</span>
+            <input type="number" id="edit_id_input" style="display: none;" value="1">
             <input id="edit_palavra_input" placeholder="A palavra" class="input inputpop">
             <input id="edit_significado_input" placeholder="A tradução da palavra" class="input inputpop">
             
@@ -158,6 +159,7 @@
         <button>Acções</button>
  
      </div>
+     <div id="words-receiver" style="display: flex; width: 100%; flex-direction: column;"></div>
 <script src="../JS/admin1.js"></script>
 <script src="../JS/caminhos.js"></script>
 

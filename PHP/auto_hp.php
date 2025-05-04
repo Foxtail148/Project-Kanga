@@ -40,12 +40,15 @@ try {
 
     // 4. Calcular tempo restante para próxima vida
     $tempoRestante = max(0, 300 - ($agora - $ultimaRecarga)); // em segundos
+    $timestampProximaVida = $ultimaRecarga + 300;
+
 
     // 5. Retornar JSON
     echo json_encode([
         'vida_atual' => $vidaAtual,
         'vida_maxima' => $vidaMaxima,
-        'tempo_restante' => $tempoRestante
+        'tempo_restante' => $tempoRestante,
+        'proxima_vida_em' => date('c', $timestampProximaVida)
     ]);
 
 } catch (Exception $e) {

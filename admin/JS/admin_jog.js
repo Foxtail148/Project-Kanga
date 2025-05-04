@@ -97,6 +97,11 @@ async function addJB() {
         document.getElementById("palavra3").value = "";
         document.getElementById("palavra4").value = "";
 
+        document.querySelectorAll("div.input.inputpop")[0].innerText = ""
+        document.querySelectorAll("div.input.inputpop")[1].innerText = ""
+        document.querySelectorAll("div.input.inputpop")[2].innerText = ""
+        document.querySelectorAll("div.input.inputpop")[3].innerText = ""
+
         document.getElementById("palavraPrincipal").style = "";
         document.getElementById("palavra2").style = "";
         document.getElementById("palavra3").style = "";
@@ -137,7 +142,100 @@ async function addJB() {
 
 }
 
+async function editJB() {
+    let params = new URL(location.href).searchParams;
+    let formdata = new FormData();
 
+    for(let index = 0; index < palavras_escolhidas.length; index++){
+        let palavra = palavras_escolhidas[index];
+        let t = edit_tipo_value.toLowerCase();
+        if(!palavra && index < 3 ){
+            alert("Palavras em falta");
+            return null;
+        }
+        else if(!palavra && t == "pares"){
+            alert("Palavras em falta");
+            return null;
+        }
+        else{
+
+        }
+    }
+
+    if(palavras_escolhidas[0] == palavras_escolhidas[1]){
+        alert("Não coloque palavras iguais")
+        return null;
+    }
+
+    if(palavras_escolhidas[0] == palavras_escolhidas[2]){
+        alert("Não coloque palavras iguais")
+        return null;
+    }
+
+    if(palavras_escolhidas[0] == palavras_escolhidas[3]){
+        alert("Não coloque palavras iguais")
+        return null;
+    }
+
+    if(palavras_escolhidas[1] == palavras_escolhidas[2]){
+        alert("Não coloque palavras iguais")
+        return null;
+    }
+
+    if(palavras_escolhidas[1] == palavras_escolhidas[3]){
+        alert("Não coloque palavras iguais")
+        return null;
+    }
+
+    if(palavras_escolhidas[2] == palavras_escolhidas[3]){
+        alert("Não coloque palavras iguais")
+        return null;
+    }
+
+    formdata.append("id", edit_id_value);
+    formdata.append("palavras", palavras_escolhidas);
+
+    let obj = await fetch("../PHP/editar_jogabilidade_nivel.php", {
+        method: "POST",
+        "Content-Type": "multipart/form-data",
+        body: formdata
+    });
+    
+    let resp = await obj.json();
+
+    if(resp.mensagem)
+        alert(resp.mensagem)
+    else{
+        alert("Jogabilidade alterada");
+
+        document.getElementById("palavraPrincipal").style = "";
+        document.getElementById("palavra2").style = "";
+        document.getElementById("palavra3").style = "";
+        document.getElementById("palavra4").style = "";
+
+        //palavras_escolhidas = [null, null, null, null];
+    }
+}
+
+async function delJB(){
+    let formdata = new FormData();
+    formdata.append("id", edit_id_value);
+
+    let obj = await fetch("../PHP/deletar_jogabilidade_nivel.php", {
+        method: "POST",
+        "Content-Type": "multipart/form-data",
+        body: formdata
+    });
+    
+    let resp = await obj.json();
+
+    if(resp.mensagem)
+        alert(resp.mensagem)
+    else{
+        alert("Jogabilidade eliminada");
+        fecharPopupEditar()
+    }
+}
 
 function dadosIniciais(){
     let params = new URL(location.href).searchParams;
@@ -207,6 +305,7 @@ async function carregarJogabilidades(){
     let params = new URL(location.href).searchParams;
     let obj = await fetch("../PHP/carregar_jogabilidades.php?nivel="+params.get("nivel_id"));
     let resp = await obj.json();
+    let tmp_html = ""
 
     resp.jogabilidades.map((jogabilidade, index)=>{
         let con = "";
@@ -218,7 +317,7 @@ async function carregarJogabilidades(){
             `
         })
 
-        document.body.innerHTML += `
+        tmp_html += `
         <div class="jb-ed">
             <div class="campos">
                 <div>TIPO: <span>${jogabilidade.tipo}</span></div>
@@ -227,10 +326,12 @@ async function carregarJogabilidades(){
                     
                 }
             </div>
-            <button onclick="abrirPopup()">Editar</button>
+            <button onclick='abrirPopupEditar(${jogabilidade.id}, "${jogabilidade.tipo}", ${JSON.stringify(jogabilidade.palavras)})'>Editar</button>
         </div>
         `
     })
+
+    document.getElementById("jogs-receiver").innerHTML = tmp_html
 }
 
 
@@ -241,10 +342,79 @@ function abrirPopup() {
     document.getElementById("popup").style.display = "flex";
 }
 
+let edit_id_value = null;
+let edit_tipo_value = null;
+
+function abrirPopupEditar(id, tipo, pals){
+    //console.log(id)
+    //console.log(palavras_escolhidas)
+    edit_id_value = id;
+    edit_tipo_value = tipo;
+    //document.querySelector(".edit_main_button").style = "inline"
+    document.querySelector(".edit_del_button").style.display = "inline"
+    //document.querySelector(".edit_out_button").style = "inline"
+    document.querySelector(".popup_tipo").innerText += " " + tipo.toUpperCase()
+    document.querySelector(".edit_main_button").innerText = "Salvar"
+    document.querySelector(".edit_main_button").onclick = () => editJB();
+    document.querySelector(".edit_out_button").onclick = () => fecharPopupEditar();
+
+    popup_select.style.display = "none"
+
+    palavraPrincipal.value = pals[0].palavra
+    palavras_escolhidas[0] = pals[0].id_palavra
+    document.querySelectorAll("div.input.inputpop")[0].innerText = pals[0].significado
+
+    palavra2.value = pals[1].palavra
+    palavras_escolhidas[1] = pals[1].id_palavra
+    document.querySelectorAll("div.input.inputpop")[1].innerText = pals[1].significado
+
+    palavra3.value = pals[2].palavra
+    palavras_escolhidas[2] = pals[2].id_palavra
+    document.querySelectorAll("div.input.inputpop")[2].innerText = pals[2].significado
+    if(pals[3]){
+       palavra4.value = pals[3].palavra
+       palavras_escolhidas[3] = pals[3].id_palavra
+       document.querySelectorAll("div.input.inputpop")[3].innerText = pals[3].significado
+       document.querySelector(".pop.last-word").style.display = "flex"
+    }
+    //console.log(palavras_escolhidas)
+
+    abrirPopup()
+}
+
 function fecharPopup() {
     document.body.classList.remove("blur"); 
     document.getElementById("overlay").style.display = "none"; 
     document.getElementById("popup").style.display = "none";
 }
 
+function fecharPopupEditar(){
+    //alert("Fechado na edição")
+    document.querySelector(".edit_del_button").style.display = "none"
+    document.querySelector(".popup_tipo").innerText = "TIPO:"
+    document.querySelector(".edit_main_button").innerText = "Adicionar"
+    document.querySelector(".edit_main_button").onclick = () => addJB();
+    document.querySelector(".edit_out_button").onclick = () => fecharPopup();
+    popup_select.style.display = "inline"
+    palavras_escolhidas = [null, null, null, null];
+
+    palavraPrincipal.value = "";
+    palavra2.value = "";
+    palavra3.value = "";
+    palavra4.value = "";
+
+    document.querySelectorAll("div.input.inputpop")[0].innerText = ""
+    document.querySelectorAll("div.input.inputpop")[1].innerText = ""
+    document.querySelectorAll("div.input.inputpop")[2].innerText = ""
+    document.querySelectorAll("div.input.inputpop")[3].innerText = ""
+
+    document.querySelector(".pop.last-word").style.display = "none"
+    fecharPopup();
+}
+
 carregarJogabilidades();
+setInterval(()=>{
+    carregarJogabilidades()
+}, 2000)
+
+//popup_aud.click()

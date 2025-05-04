@@ -77,8 +77,8 @@
         
     <div class="lb-search pop"> 
         <div class="lb-pf"> 
-            <span class="sp">TIPO:</span>
-            <select onchange="mudarJogabilidade(this.value)">
+            <span class="sp popup_tipo">TIPO:</span>
+            <select id="popup_select" onchange="mudarJogabilidade(this.value)">
                 <option>Significado</option>
                 <option>Pares</option>
                 <option>Áudio</option>
@@ -89,9 +89,9 @@
         <!--Esse deletar só vai ficar disponivel de clicar no editar  -->
     <div class="pop-btn">
 
-        <button class="btn-pop" onclick="addJB()">Adicionar</button>
-        <button class="btn-pop" onclick="delrow()">Deletar</button>
-        <button class="btn-pop" onclick="fecharPopup()">Sair</button>
+        <button class="btn-pop edit_main_button" onclick="addJB()">Adicionar</button>
+        <button class="btn-pop edit_del_button" onclick="delJB()" style="display: none">Deletar</button>
+        <button class="btn-pop edit_out_button" onclick="fecharPopup()">Sair</button>
         </div>
     </div>
 
@@ -119,7 +119,7 @@
 
 
 <div class="overlay" id="overlay"></div>
-
+<div id="jogs-receiver" style="display: flex; width: 100%; flex-direction: column;"></div>
 </body>
     <!-- Tentei adicionar outro pop-up, deu conflito
     aaaaaaaaaaaaaaaaaaaaaaah -->
