@@ -100,4 +100,28 @@
 </body>
 </html>
 <script> </script>
+<script>
+	let tmp_params = new URL(location.href).searchParams;
+	if(!tmp_params.get("nivel")){
+		document.body.innerHTML	= ""
+		location.href= "../HTML/Interface.html"
+	}
+
+    function verifyAccount() {
+        let cookie_nome = localStorage.getItem("nome");
+        let cookie_senha = localStorage.getItem("senha");
+        let cookie_id = localStorage.getItem("id");
+
+        if(!cookie_nome || !cookie_senha || !cookie_id){
+            document.body.innerHTML = ""
+            location.href = "../HTML/login.html"
+        }
+    }
+
+    verifyAccount()
+
+    setInterval(()=>{
+        verifyAccount()
+    }, 500)
+</script>
 <script type="text/javascript" src="../JS/jogabilidade.js"></script>

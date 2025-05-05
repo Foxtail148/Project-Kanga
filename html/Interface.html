@@ -154,6 +154,24 @@
  });
  
  </script>
+ <script>
+    function verifyAccount() {
+        let cookie_nome = localStorage.getItem("nome");
+        let cookie_senha = localStorage.getItem("senha");
+        let cookie_id = localStorage.getItem("id");
+
+        if(!cookie_nome || !cookie_senha || !cookie_id){
+            document.body.innerHTML = ""
+            location.href = "../HTML/login.html"
+        }
+    }
+
+    verifyAccount()
+
+    setInterval(()=>{
+        verifyAccount()
+    }, 500)
+ </script>
 
  <script src="../JS/niveis.js"></script>
  <script src="../JS/sb.js"></script>

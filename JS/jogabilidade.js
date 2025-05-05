@@ -46,6 +46,13 @@ async function pegarDados() {
 	if(res.message)
 		alert(res.message)
 	else{
+		
+		if(!res.allowed){
+				document.body.innerHTML	= ""
+				location.href	= "../HTML/Interface.html"
+		}
+
+		console.log(res.allowed)
 		res.data.map((elemento, index)=>{
 				//if(elemento.tipo == "significado"){
 					menus = [...menus, {tipo: elemento.tipo, palavras: elemento.palavras, ended: false}];

@@ -4,6 +4,7 @@ include("conexao.php");
 $nivel = $_POST['nivel'];
 $aluno = $_POST['aluno'];
 $message = "";
+$allowed	= true;
 $response = [];
 $jogs = [];
 $hp = 0;
@@ -126,12 +127,28 @@ try{
 
   }
   
-  $query = $conn->prepare("SELECT hp from aluno WHERE id_aluno = ?");
+  $query = $conn->prepare("SELECT hp, nivel_actual from aluno WHERE id_aluno = ?");
   $query->execute([$aluno]);
   $rows = $query->fetchAll(
   	PDO::FETCH_ASSOC
   );
   $hp = $rows[0]["hp"];
+
+  $nivel_actual = $rows[0]["nivel_actual"];
+
+
+  $query = $conn->prepare("SELECT COUNT(*) as total from aluno_nivel	WHERE id_aluno = ? and id_nivel	= ?");
+  $query->execute([$aluno, $nivel]);
+  $rows = $query->fetchAll(
+  	PDO::FETCH_ASSOC
+  );
+  $count_times = $rows[0]["total"];
+
+  if($hp <= 0 || ($count_times	<= 0 && $nivel_actual	!= $nivel)){
+  	$allowed	= false;
+  }
+
+
 
 } catch (PDOException $e) {
   $message = "Erro na conexão";
@@ -145,5 +162,5 @@ try{
 //echo "<br>";
 //echo json_encode(["message" => $message, "data" => getPares()]);
 // echo "<br>";
-echo json_encode(["message" => $message, "data" => $jogs, "hp" => $hp]);
+echo json_encode(["message" => $message, "data" => $jogs, "hp" => $hp, "allowed" => $allowed]);
 ?>

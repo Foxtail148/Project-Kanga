@@ -18,8 +18,12 @@
 
             <span>Conta</span>
             <span class="line"></span>
-            <span> adminuser@gmail.com </span>
-            <div> <button>LOG</button> </div>
+            <span>
+                <script>
+                    document.write(localStorage.getItem("kanga_admin_email"))
+                </script>
+            </span>
+            <div onclick="logout()"> <button>LOG</button> </div>
     
         </section>
         
@@ -162,6 +166,29 @@
      <div id="words-receiver" style="display: flex; width: 100%; flex-direction: column;"></div>
 <script src="../JS/admin1.js"></script>
 <script src="../JS/caminhos.js"></script>
+<script>
+    function logout(){
+        localStorage.removeItem("kanga_admin_email")
+        localStorage.removeItem("kanga_admin_senha")
+        document.body.innerHTML = ""
+        location.href = "../HTML/loginAdmin.html"
+    }
+
+    function verifyAccount(){
+        let cookie_email = localStorage.getItem("kanga_admin_email")
+        let cookie_senha = localStorage.getItem("kanga_admin_senha")
+
+        if(!cookie_email || !cookie_senha){
+            document.body.innerHTML = ""
+            location.href = "../HTML/loginAdmin.html"
+        }
+    }
+
+    verifyAccount()
+    setInterval(()=>{
+        verifyAccount()
+    }, 500)
+</script>
 
 
 </body>
