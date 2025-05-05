@@ -64,14 +64,15 @@ async function pegarDados() {
 		//console.log(menus)
 		updateProgress();
 
+		await	sleep(1000)
 		iniciar();
 	}
 }
 
 function iniciar(){
 	//document.querySelector(".gamingSectionText").innerText = "O que significa "+`"`+menus[jogo_actual].texto+`"`+"?";
-
-	if(progress >= menus.length){
+	//document.querySelector(".gamingSectionText").innerText = "";
+		if(progress >= menus.length){
 		proximoNivel();
 		return;
 	}
@@ -85,6 +86,7 @@ function iniciar(){
 		return;
 	}
 
+	document.querySelector(".gamingSection.loadingGame").style.display = "none"
 	jogo_actual = tmp_menu;
 
 	if(menus[jogo_actual].tipo == "frase"){
@@ -413,7 +415,7 @@ function playAudio(){
 updateProgress()
 pegarDados()
 
-/*teste da jog frase*/
+//teste da jog frase
 //const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 //document.querySelector(".gamingSection.jogFrase").style.display = "flex"
 //document.querySelector(".gamingSectionText").innerText = "Organize a frase:"
