@@ -21,6 +21,13 @@ async function addJB() {
     let params = new URL(location.href).searchParams;
     let formdata = new FormData();
 
+
+    if(document.querySelector(".lb-pf select").value.toLowerCase() == "frase"){
+        if(!palavras_escolhidas[0]){
+            alert("Palavras em falta");
+            return null;
+        }
+    } else {
     for(let index = 0; index < palavras_escolhidas.length; index++){
         let palavra = palavras_escolhidas[index];
         /*1 - 2;
@@ -73,6 +80,7 @@ async function addJB() {
     if(palavras_escolhidas[2] == palavras_escolhidas[3]){
         alert("Não coloque palavras iguais")
         return null;
+    }
     }
 
 
@@ -146,6 +154,12 @@ async function editJB() {
     let params = new URL(location.href).searchParams;
     let formdata = new FormData();
 
+    if(edit_tipo_value.toLowerCase() == "frase"){
+        if(!palavras_escolhidas[0]){
+            alert("Palavras em falta");
+            return null;
+        }
+    } else {
     for(let index = 0; index < palavras_escolhidas.length; index++){
         let palavra = palavras_escolhidas[index];
         let t = edit_tipo_value.toLowerCase();
@@ -191,7 +205,7 @@ async function editJB() {
         alert("Não coloque palavras iguais")
         return null;
     }
-
+        }
     formdata.append("id", edit_id_value);
     formdata.append("palavras", palavras_escolhidas);
 
@@ -251,14 +265,36 @@ dadosIniciais()
 
 
 function mudarJogabilidade(valor){
+    if(valor.toLowerCase() != "frase"){
+        document.querySelectorAll(".lb-search.pop")[2].style.display = "flex"
+        document.querySelectorAll(".lb-search.pop")[3].style.display = "flex"
+        document.querySelectorAll(".lb-search.pop")[4].style.display = "flex"
+    }
+
     if(valor.toLowerCase() == "significado" || valor.toLowerCase() == "áudio"){
         
         document.querySelector(".lb-search.pop.last-word input").style = "";
         document.querySelector(".lb-search.pop.last-word input").value = "";
         document.querySelector(".lb-search.pop.last-word").style.display = "none";
         palavras_escolhidas[3] = null;
-    } else{
+    } else if(valor.toLowerCase() == "pares"){
         document.querySelector(".lb-search.pop.last-word").style.display = "flex";
+    } else {
+        palavra2.style = ""
+        palavra2.value = ""
+
+        palavra3.style = ""
+        palavra3.value = ""
+
+        palavra4.style = ""
+        palavra4.value = ""
+
+        document.querySelectorAll(".lb-search.pop")[2].style.display = "none"
+        document.querySelectorAll(".lb-search.pop")[3].style.display = "none"
+        document.querySelectorAll(".lb-search.pop")[4].style.display = "none"
+        palavras_escolhidas[1] = null
+        palavras_escolhidas[2] = null
+        palavras_escolhidas[3] = null
     }
 }
 
@@ -359,7 +395,20 @@ function abrirPopupEditar(id, tipo, pals){
     document.querySelector(".edit_out_button").onclick = () => fecharPopupEditar();
 
     popup_select.style.display = "none"
+    if(tipo != "frase"){
+        document.querySelectorAll(".lb-search.pop")[2].style.display = "flex"
+        document.querySelectorAll(".lb-search.pop")[3].style.display = "flex"
+    }
 
+    if(tipo == "frase"){
+        palavraPrincipal.value = pals[0].palavra
+        palavras_escolhidas[0] = pals[0].id_palavra
+        document.querySelectorAll("div.input.inputpop")[0].innerText = pals[0].significado
+
+        document.querySelectorAll(".lb-search.pop")[2].style.display = "none"
+        document.querySelectorAll(".lb-search.pop")[3].style.display = "none"
+        document.querySelectorAll(".lb-search.pop")[4].style.display = "none"
+    } else {
     palavraPrincipal.value = pals[0].palavra
     palavras_escolhidas[0] = pals[0].id_palavra
     document.querySelectorAll("div.input.inputpop")[0].innerText = pals[0].significado
@@ -377,6 +426,7 @@ function abrirPopupEditar(id, tipo, pals){
        document.querySelectorAll("div.input.inputpop")[3].innerText = pals[3].significado
        document.querySelector(".pop.last-word").style.display = "flex"
     }
+    }
     //console.log(palavras_escolhidas)
 
     abrirPopup()
@@ -386,6 +436,30 @@ function fecharPopup() {
     document.body.classList.remove("blur"); 
     document.getElementById("overlay").style.display = "none"; 
     document.getElementById("popup").style.display = "none";
+    palavras_escolhidas = [null, null, null, null];
+
+    palavraPrincipal.value = "";
+    palavra2.value = "";
+    palavra3.value = "";
+    palavra4.value = "";
+
+    document.querySelectorAll("div.input.inputpop")[0].innerText = ""
+    document.querySelectorAll("div.input.inputpop")[1].innerText = ""
+    document.querySelectorAll("div.input.inputpop")[2].innerText = ""
+    document.querySelectorAll("div.input.inputpop")[3].innerText = ""
+
+    palavraPrincipal.style = "";
+    palavra2.style = "";
+    palavra3.style = "";
+    palavra4.style = "";
+
+    document.querySelectorAll(".lb-search.pop")[1].style = ""
+    document.querySelectorAll(".lb-search.pop")[2].style = ""
+    document.querySelectorAll(".lb-search.pop")[3].style = ""
+    document.querySelectorAll(".lb-search.pop")[4].style = ""
+
+    document.querySelector(".pop.last-word").style.display = "none"
+    popup_select.value = "Significado"
 }
 
 function fecharPopupEditar(){

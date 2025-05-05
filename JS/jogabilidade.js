@@ -10,6 +10,11 @@ let correctSignWord = null;
 
 let correctAudioWord = null;
 
+
+let correctPhrase = null
+let choosenPhraseEl = null
+let choosenPhraseValue = null
+
 function updateTentativas(){
 	tentativasSpan.innerText = tentativas;
 }
@@ -66,7 +71,7 @@ function iniciar(){
 
 	let tmp_menu = getRandomInt(0, menus.length);
 	
-	if((menus[tmp_menu].tipo != "significado" && menus[tmp_menu].tipo != "pares" && menus[tmp_menu].tipo != "áudio") || menus[tmp_menu].ended || tmp_menu == jogo_actual){
+	if((menus[tmp_menu].tipo != "significado" && menus[tmp_menu].tipo != "pares" && menus[tmp_menu].tipo != "áudio" && menus[tmp_menu].tipo != "frase") || menus[tmp_menu].ended || tmp_menu == jogo_actual){
 
 		iniciar();
 
@@ -75,9 +80,18 @@ function iniciar(){
 
 	jogo_actual = tmp_menu;
 
+	if(menus[jogo_actual].tipo == "frase"){
+		document.querySelector(".verifyButton").classList.remove("disabledButton");
+		document.querySelector(".verifyButton").onclick = ()=>verifyPhrase()
+	} else {
+		document.querySelector(".verifyButton").classList.add("disabledButton");
+		document.querySelector(".verifyButton").onclick = function(){}
+	}
+
 	if(menus[jogo_actual].tipo == "significado"){
 		document.querySelector(".gamingSection.jogAudio").style.display = "none"
 		document.querySelector(".gamingSection.jogPares").style.display = "none"
+		document.querySelector(".gamingSection.jogFrase").style.display = "none"
 
 		let tmp_int = getRandomInt(0, menus[jogo_actual].palavras.length);
 		correctSignWord = menus[jogo_actual].palavras[tmp_int].significado;
@@ -98,6 +112,7 @@ function iniciar(){
 	if(menus[jogo_actual].tipo == "áudio"){
 		document.querySelector(".gamingSection.jogSign").style.display = "none"
 		document.querySelector(".gamingSection.jogPares").style.display = "none"
+		document.querySelector(".gamingSection.jogFrase").style.display = "none"
 
 		let tmp_int = getRandomInt(0, menus[jogo_actual].palavras.length);
 		correctAudioWord = menus[jogo_actual].palavras[tmp_int].significado;
@@ -113,7 +128,7 @@ function iniciar(){
 		menus[jogo_actual].palavras.map((elemento, index)=>{
 			//alert(elemento.significado)
 			document.querySelector(".gamingSection.jogAudio .gamingSectionBar").innerHTML+=`
-				<div class="gamingSectionWord" onclick='chooseWordAudio(this, "${elemento.significado}")'>${elemento.palavra}</div>
+				<div class="gamingSectionWord" onclick='chooseWordAudio(this, "${elemento.significado}")'>${elemento.significado}</div>
 			`
 		})
 	}
@@ -123,6 +138,7 @@ function iniciar(){
 		choosenPairsValue = null
 		document.querySelector(".gamingSection.jogAudio").style.display = "none"
 		document.querySelector(".gamingSection.jogSign").style.display = "none"
+		document.querySelector(".gamingSection.jogFrase").style.display = "none"
 
 		document.querySelector(".gamingSectionText").innerText = `Combine os pares:`;
 		//console.log(correctSignWord)
@@ -160,13 +176,44 @@ function iniciar(){
 			}
 		})
 	}
+
+	if(menus[jogo_actual].tipo == "frase"){
+		correctPhrase = null
+		choosenPhraseEl = null
+		choosenPhraseValue = null
+		document.querySelector(".gamingSection.jogAudio").style.display = "none"
+		document.querySelector(".gamingSection.jogSign").style.display = "none"
+		document.querySelector(".gamingSection.jogPares").style.display = "none"
+
+		document.querySelector(".gamingSectionText").innerText = `Organize a frase:`;
+		//console.log(correctSignWord)
+		let tmp_element = document.querySelector(".gamingSection.jogFrase");
+		console.log(tmp_element)
+		//tmp_element.innerHTML = ""
+		document.querySelector(".gamingSection .jogFraseText").innerHTML = ""
+		document.querySelector(".gamingSection .jogFraseConteiner").innerHTML = ""
+		tmp_element.style.display = "flex"
+
+		correctPhrase = menus[jogo_actual].palavras[0].significado
+		document.querySelector(".gamingSection .jogFraseText").innerText = menus[jogo_actual].palavras[0].palavra
+
+		menus[jogo_actual].palavras[0].significado.split(" ").map((elemento, index)=>{
+			let fim1 = getRandomInt(0, 2);
+			if(fim1){
+				document.querySelector(".gamingSection .jogFraseConteiner").innerHTML = `
+					<div class="gamingSectionWord" onclick="chooseWordPhrase(this, this.innerText)">${elemento.toLowerCase()}</div>
+				` + document.querySelector(".gamingSection .jogFraseConteiner").innerHTML
+			} else{
+				document.querySelector(".gamingSection .jogFraseConteiner").innerHTML += `
+					<div class="gamingSectionWord" onclick="chooseWordPhrase(this, this.innerText)">${elemento.toLowerCase()}</div>
+				`
+			}
+		})
+		
+	}
 }
 
 async function chooseWordSignificado(element, value){
-	/*temps = document.querySelectorAll(".gamingSectionWord");
-	for(el of temps){
-		el.setAttribute("class", "gamingSectionWord")
-	}*/
 	let tmp_element_class = element.getAttribute("class");
 	//alert(value)
 	if(value == correctSignWord){
@@ -184,7 +231,7 @@ async function chooseWordSignificado(element, value){
 		tentativas--
 		updateProgress()
 
-		updateProgress()
+		//updateProgress()
 	}
 
 	
@@ -301,14 +348,6 @@ async function acertou(element){
 }
 
 async function errou(){
-	/*element.setAttribute("class", "gamingSectionWord gamingSectionWrongWord")
-	if(tentativas == 1){
-		location.href = location.href
-	}
-	tentativas --;
-	updateTentativas()
-	//alert("Errou")
-	*/
 	await fetch("../PHP/decreaseHp.php?aluno="+(localStorage.getItem("id")));
 }
 
@@ -366,3 +405,97 @@ function playAudio(){
 
 updateProgress()
 pegarDados()
+
+/*teste da jog frase*/
+//const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+//document.querySelector(".gamingSection.jogFrase").style.display = "flex"
+//document.querySelector(".gamingSectionText").innerText = "Organize a frase:"
+//let correctPhrase = null
+//let choosenPhraseEl = null
+//let choosenPhraseValue = null
+//let choosenPhraseFunction = null
+
+//document.querySelector(".verifyButton").classList.remove("disabledButton");
+//document.querySelector(".verifyButton").onclick = ()=>verifyPhrase()
+
+async function chooseWordPhrase(element, value){
+	if(!choosenPhraseValue || !choosenPhraseEl){
+		choosenPhraseValue = value;
+		choosenPhraseEl = element;
+		//choosenPhraseFunction = element.onclick
+		//console.log(element.innerText == value)
+		console.log(value)
+		element.classList.add("selectedWord")
+		return
+	}
+
+	if(element == choosenPhraseEl){
+		return;
+	}
+
+	element.classList.add("selectedWord")
+	choosenPhraseEl.innerText = value;
+	element.innerText = choosenPhraseValue;
+
+	await sleep(500);
+	element.classList.remove("selectedWord");
+	choosenPhraseEl.classList.remove("selectedWord");
+
+	choosenPhraseEl = null;
+	choosenPhraseValue = null;
+	//choosenPhraseFunction = null;
+}
+
+async function verifyPhrase(){
+	let all_el = document.querySelectorAll(".jogFrase .gamingSectionWord");
+	let tmp_vector = [];
+	
+	for(el of all_el){
+		tmp_vector = [...tmp_vector, el.innerText];
+	}
+
+	let tmp_choosen = tmp_vector.join(" ");
+
+	if(tmp_choosen.toLowerCase() == correctPhrase.toLowerCase()){
+		for(el of all_el){
+			el.classList.add("gamingSectionRightWord")
+		}
+		await sleep(1000);
+		for(el of all_el){
+			el.classList.remove("gamingSectionRightWord")
+		}
+
+		menus[jogo_actual].ended = true;
+		progress ++;
+		updateProgress()
+
+		await sleep(1000);
+		iniciar();
+
+	} else {
+		
+		for(el of all_el){
+			el.classList.add("gamingSectionWrongWord")
+		}
+		await sleep(1000);
+		for(el of all_el){
+			el.classList.remove("gamingSectionWrongWord")
+		}
+
+		errou();
+		tentativas--
+
+		if(tentativas <= 0){
+			let tmp_correct_html = ""
+			correctPhrase.split(" ").map((elemento, index)=>{
+				 tmp_correct_html += `
+					<div class="gamingSectionWord" onclick="chooseWordPhrase(this, this.innerText)">${elemento}</div>
+				`
+			})
+
+			document.querySelector(".gamingSection .jogFraseConteiner").innerHTML = tmp_correct_html;
+		}
+
+		updateProgress();
+	}
+}

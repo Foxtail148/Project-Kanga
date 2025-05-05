@@ -79,7 +79,7 @@ async function adicionarPalavra(){
     let palavra = palavra_input.value;
     let significado = significado_input.value;
     let audio = audio_file.files[0];
-
+    let categoria = document.querySelector("#popup select").value.toLowerCase();
     if( palavra == "" || significado == "" || audio == undefined || audio == null || audio_label.innerText == "Áudio"){
         alert("Preencha todos os campos")
         return null;
@@ -90,6 +90,7 @@ async function adicionarPalavra(){
     formdata.append("audio", audio);
     formdata.append("palavra", palavra);
     formdata.append("significado", significado);
+    formdata.append("categoria", categoria);
 
     //alert("Passou")
 
@@ -141,6 +142,7 @@ async function salvarEdicao(){
     let significado = edit_significado_input.value;
     let audio = edit_audio_file.files[0];
     let edit_id_palavra = edit_id_input.value;
+    let categoria = document.querySelector("#popup-editar select").value.toLowerCase();
     if( palavra == "" || significado == "" || audio == undefined || audio == null || edit_audio_label.innerText == "Áudio"){
         alert("Preencha todos os campos")
         return null;
@@ -152,6 +154,7 @@ async function salvarEdicao(){
     formdata.append("audio", audio);
     formdata.append("palavra", palavra);
     formdata.append("significado", significado);
+    formdata.append("categoria", categoria);
 
     //alert("Passou")
 

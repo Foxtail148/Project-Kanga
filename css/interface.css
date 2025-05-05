@@ -142,6 +142,8 @@ body{
     border: 5px solid #00264B ;
     box-shadow: -6px 10px 0 #00264B;
 
+    /*cc alteração*/
+    color: white;
    }
 
    .level-header button{
@@ -195,17 +197,92 @@ body{
   }
 
 
-  .disabled-level{
+  #fase1-cnt .level{
+    background-color: #60B1FF;
+    box-shadow: #00366B 0px 18px 0px 0px;
+  }
+
+  #fase1-cnt .level:hover{
+    box-shadow: #00366B 0px 15px 0px 0px;
+    transform: translateY(4px);
+  }
+
+  #fase1-cnt .level:active{
+    background-color: #60B1FF;
+    box-shadow: #00366B 0px 0px 0px 0px;
+    transform: translateY(19px);
+    transition: 20ms;
+  }
+
+
+
+  #fase2-cnt .level{
+    background-color: #F03986;
+    box-shadow: #571530 0px 18px 0px 0px;
+  }
+
+  #fase2-cnt .level:hover{
+    box-shadow: #571530 0px 15px 0px 0px;
+    transform: translateY(4px);
+  }
+
+  #fase2-cnt .level:active{
+    background-color: #F03986;
+    box-shadow: #571530 0px 0px 0px 0px;
+    transform: translateY(19px);
+    transition: 20ms;
+  }
+
+
+
+
+  #fase3-cnt .level{
+    background-color: #FFBB00;
+    box-shadow: #5A4102 0px 18px 0px 0px;
+  }
+
+  #fase3-cnt .level:hover{
+    box-shadow: #5A4102 0px 15px 0px 0px;
+    transform: translateY(4px);
+  }
+
+  #fase3-cnt .level:active{
+    background-color: #FFBB00;
+    box-shadow: #5A4102 0px 0px 0px 0px;
+    transform: translateY(19px);
+    transition: 20ms;
+  }
+
+
+
+  #fase4-cnt .level{
+    background-color: #10B544;
+    box-shadow: #087F2D 0px 18px 0px 0px;
+  }
+
+  #fase4-cnt .level:hover{
+    box-shadow: #087F2D 0px 15px 0px 0px;
+    transform: translateY(4px);
+  }
+
+  #fase4-cnt .level:active{
+    background-color: #10B544;
+    box-shadow: #087F2D 0px 0px 0px 0px;
+    transform: translateY(19px);
+    transition: 20ms;
+  }
+
+  #fase1-cnt .disabled-level, #fase2-cnt .disabled-level, #fase3-cnt .disabled-level, #fase4-cnt .disabled-level{
     background-color: #ddd;
     box-shadow:  #ccc 0px 18px 0px 0px;
   }
 
-  .disabled-level:hover {
+  #fase1-cnt .disabled-level:hover, #fase2-cnt .disabled-level:hover, #fase3-cnt .disabled-level:hover, #fase4-cnt .disabled-level:hover {
     box-shadow: #ccc 0px 15px 0px 0px;
     transform: translateY(4px);
   }
   
-  .disabled-level:active {
+  #fase1-cnt .disabled-level:active, #fase2-cnt .disabled-level:active, #fase3-cnt .disabled-level:active, #fase4-cnt .disabled-level:active {
     background-color: #ddd;
     box-shadow: #ccc 0px 0px 0px 0px;
     transform: translateY(19px);

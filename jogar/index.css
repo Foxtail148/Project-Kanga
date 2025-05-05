@@ -202,7 +202,7 @@ html, body{
 	border: solid 2px #A9A9A9;
 }
 
-.jogSign, .jogPares, .jogAudio{
+.jogSign, .jogPares, .jogAudio, .jogFrase{
 	display: none;
 }
 
@@ -220,6 +220,36 @@ html, body{
 	align-items: center;
 	justify-content: center;
 	gap: 30px;
+}
+
+.jogFrase{
+	align-items: flex-start;
+	padding: 20px 70px;
+	justify-content: center;
+}
+.jogFraseText{
+	color: #aaa;
+	font-size: 22px;
+	font-weight: bold;
+}
+.jogFraseConteiner{
+	display: flex;
+ 	width: 100%;
+ 	align-items: center;
+ 	justify-content: flex-start;
+ 	gap: 30px;
+}
+
+.jogFrase .selectedWord{
+	box-shadow: -3px 3px 0 0 #81BDF9;
+	border: solid 2px #81BDF9;
+	color: #81BDF9;
+}
+
+.jogFrase .selectedWord:hover{
+	box-shadow: -3px 3px 0 0 #81BDF9;
+	border: solid 2px #81BDF9;
+	color: #81BDF9;
 }
 
 .jogPares .gamingSectionWord:hover{

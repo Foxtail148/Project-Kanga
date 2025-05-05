@@ -186,7 +186,8 @@ setInterval(() => {
     let restante = Math.floor((proximaRecargaTimestamp - agora) / 1000);
 
     if (restante <= 0) {
-    	 document.querySelector('.span_countdown').innerText = "00:00"
+        console.log(restante)
+    	 document.querySelector('.span_countdown').innerText = formatarTempo(300 + restante)
         getCountdown(); // nova recarga
         return;
     }

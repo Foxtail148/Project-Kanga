@@ -1,5 +1,9 @@
 let niveis;
+let old_niveis = null
 getNiveis();
+setInterval(()=>{
+	getNiveis()
+}, 2000)
 
 async function getNiveis(){
 	const themes = [
@@ -22,29 +26,38 @@ async function getNiveis(){
 	
 	if(res.message)
 		alert(res.message)
-	else
+	else{
 		niveis = res.data;
+		let tmp_html = ["", "", "", ""];
 
-	niveis.map((elemento, index)=>{
-		//alert(elemento.nivel_actual)
-    	//document.getElementById("level-conteiner").innerHTML+=`
-        //<button onclick=${elemento.numero == elemento.nivel_actual ? "setNivel("+elemento.id_nivel+")" : "acessBlockedLevel()"} class="level  ${elemento.numero > elemento.nivel_actual && "blocked_level"} ${elemento.numero < elemento.nivel_actual && "completed_level"} ${(index + 1) % 3 == 0 ? "level-mov-right" : (index + 1) % 2 == 0 || index == 0 ? "" : "level-mov-left"}"> ${elemento.numero}</button>
-     	//`
+		if(JSON.stringify(niveis) == old_niveis) return;
+		old_niveis = JSON.stringify(niveis)
+		niveis.map((elemento, index)=>{
+			//alert(elemento.nivel_actual)
+    		//document.getElementById("level-conteiner").innerHTML+=`
+        	//<button onclick=${elemento.numero == elemento.nivel_actual ? "setNivel("+elemento.id_nivel+")" : "acessBlockedLevel()"} class="level  ${elemento.numero > elemento.nivel_actual && "blocked_level"} ${elemento.numero < elemento.nivel_actual && "completed_level"} ${(index + 1) % 3 == 0 ? "level-mov-right" : (index + 1) % 2 == 0 || index == 0 ? "" : "level-mov-left"}"> ${elemento.numero}</button>
+     		//`
 		
-		let elemento_fase = document.querySelector(`#fase${elemento.id_fase}-cnt`);
-		/*elemento_fase.innerHTML += `
-			<button class="level ${elemento.id_nivel == elemento.nivel_actual || elemento.estado ? "" : "disabled-level"}" onclick="${(elemento.nivel_actual == elemento.id_nivel || elemento.estado) ? (elemento.hp > 0 ? `setNivel(${elemento.id_nivel})` : "lowHp()") : "acessBlockedLevel()"}">
-				${elemento.id_nivel == elemento.nivel_actual || !elemento.estado ? `<i class="fa-solid fa-star fa-4x"></i>` : `<i class="fa-solid fa-check fa-4x"></i>`}
-			</button>
-		`*/
-		elemento_fase.innerHTML += `
-			<button class="level ${elemento.id_nivel == elemento.nivel_actual || elemento.estado ? "" : "disabled-level"}" onclick="${(elemento.nivel_actual == elemento.id_nivel || elemento.estado) ? (elemento.hp > 0 ? `setNivel(${elemento.id_nivel})` : "lowHp()") : "acessBlockedLevel()"}">
-				${elemento.estado ? `<i class="fa-solid fa-check fa-4x"></i>` : `<i class="fa-solid fa-star fa-4x"></i>`}
-			</button>
-		`
+			let elemento_fase = document.querySelector(`#fase${elemento.id_fase}-cnt`);
+			/*elemento_fase.innerHTML += `
+				<button class="level ${elemento.id_nivel == elemento.nivel_actual || elemento.estado ? "" : "disabled-level"}" onclick="${(elemento.nivel_actual == elemento.id_nivel || elemento.estado) ? (elemento.hp > 0 ? `setNivel(${elemento.id_nivel})` : "lowHp()") : "acessBlockedLevel()"}">
+					${elemento.id_nivel == elemento.nivel_actual || !elemento.estado ? `<i class="fa-solid fa-star fa-4x"></i>` : `<i class="fa-solid fa-check fa-4x"></i>`}
+				</button>
+			`*/
+			tmp_html[elemento.id_fase - 1] += `
+				<button class="level ${elemento.id_nivel == elemento.nivel_actual || elemento.estado ? "" : "disabled-level"}" onclick="${(elemento.nivel_actual == elemento.id_nivel || elemento.estado) ? (elemento.hp > 0 ? `setNivel(${elemento.id_nivel})` : "lowHp()") : "acessBlockedLevel()"}">
+					${elemento.estado ? `<i class="fa-solid fa-check fa-4x"></i>` : `<i class="fa-solid fa-star fa-4x"></i>`}
+				</button>
+			`
+			//alert(elemento.estado)
+  		})
+  		
+		document.querySelector(`#fase1-cnt`).innerHTML = tmp_html[0]
+		document.querySelector(`#fase2-cnt`).innerHTML = tmp_html[1]
+		document.querySelector(`#fase3-cnt`).innerHTML = tmp_html[2]
+		document.querySelector(`#fase4-cnt`).innerHTML = tmp_html[3]
 
-		//alert(elemento.estado)
-  	})
+	}
 
 	console.log(niveis);
 	return true;
